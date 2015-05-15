@@ -1,66 +1,62 @@
-# Get the current git branch
-parse_git_branch() {
+# Path to your oh-my-zsh installation.
+#Portable across both mac and linux now
+export ZSH=~/.oh-my-zsh
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export VISUAL=vim
+export EDITOR="$VISUAL"
+export TERM=xterm-256color
+
+parse_git_branch(){
 ref=$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3)
 
 if [ -n "$ref" ]; then echo "[$ref]"; fi
 }
 
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
-bindkey -v
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/alex/.zshrc'
 
-autoload bashcompinit
-bashcompinit
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="juanghurtado"
 
-# set up colors so tmux doesn't die
-export TERM=xterm-256color
-
-# Set up theme
-ZSH_THEME="doubleend"
-
-# Set up plugins
-plugins=(git)
-
-# Make sure prompt is set to autoload
 autoload -U promptinit
 promptinit
+plugins=(git brew npm coffee)
 
-export EDITOR="vim"
+# User configuration
 
-# Git town
-export PATH=/home/alex/packages/git-town/src/:$PATH
-export MANPATH=/home/alex/packages/git-town/man/:$MANPATH
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+# export MANPATH="/usr/local/man:$MANPATH"
 
-export PATH=/home/alex/.nvm/versions/node/v0.12.1/bin/:$PATH
 
-# Fix rust (needs this exported)
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
-# nvm
-source ~/.nvm/nvm.sh
-nvm use 0.12 1> /dev/null
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# python
-export PYTHON=python2.7
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
 
-# Karma
-export CHROME_BIN=google-chrome-stable
-
-# Maybe fix jave applets & xmonad
-_JAVA_AWT_WM_NONREPARENTING=1
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+. ~/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
 # Set up colors
 autoload -U colors && colors
@@ -68,6 +64,7 @@ autoload -U colors && colors
 # Set up custom prompt
 setopt PROMPT_SUBST
 
-RPROMPT='%{$fg[yellow]%}$(parse_git_branch)%{$reset_color%}'
+RPROMPT="%{$fg[yellow]%}${vcs_info_msg_0_}%{$reset_color%}"
+
 PROMPT="%{$fg[white]%}┌[%{$fg[yellow]%}%n%{$reset_color%}@%{$fg[cyan]%}%m%{$reset_color%}]─[%{$fg[green]%}%d%{$reset_color%}]
 └─╼ "
