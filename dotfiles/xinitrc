@@ -1,2 +1,3 @@
 xrdb ~/.Xresources
 exec ~/essentials/scripts/sysinit/xmonad_start.sh
+zsh ~/.fehbg &

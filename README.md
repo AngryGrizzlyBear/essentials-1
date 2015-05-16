@@ -27,6 +27,8 @@ There are of course a things that aren't covered (yet).
 3. No automated way to setup locker
 4. No automated way to setup suspend on lid close
 5. No chef script to do everything for you
+6. Rustc - local libs aren't initially visible
+   1. Rustc requires you to manually enter sudo ldconfig /usr/local/lib once so that it can find its libraries
 
 # Software To Install
 
@@ -38,6 +40,9 @@ Below is a not comprehensive list of software you should install and configure
 
 ## Wallpaper
 1. Feh
+
+In order to install wallpapers properly, the xinitrc in this repository includes a line to start a task in the
+background to show the wallpaper. If you use sh instead of zsh, change it appropriately.
 
 ## Terminal
 1. rxvt-unicode-256color

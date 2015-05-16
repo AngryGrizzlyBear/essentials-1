@@ -62,6 +62,7 @@ while :; do
     buf="%{r}%{F#FF6A9FB5}"
     buf="${buf} %{A:$htop:}⮡ $(cpuload)%% "
     buf="${buf} | ⮡ $(memused)%{A}"
+    buf="${buf} | $(network) "
     buf="${buf} |%{A:$alsamixer:} ⮞ $(volume)%%%{A}"
     buf="${buf} | ⮡$(battery)%{A}"
     buf="${buf} |%{A:gsimplecal&:} ⮖ $(clock)%{A}"
