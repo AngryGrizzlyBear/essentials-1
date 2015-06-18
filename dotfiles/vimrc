@@ -101,7 +101,7 @@ set tabstop=2                  " spaces entered when tab key is pressed
 set shiftwidth=2               " spaces entered for indentation
 set number                     " Line numbering
 set backspace=indent,eol,start " Make backspacing work right
-set clipboard=unnamed          " Share system clipboard
+set clipboard=unnamedplus      " Share system clipboard
 set eol                        " End of line at bottom of file
 set shiftround
 set hlsearch                   " Highlight matches in search
