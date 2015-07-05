@@ -29,6 +29,8 @@ import XMonad.Actions.FloatKeys
 import Graphics.X11.ExtraTypes.XF86
     ( xF86XK_Sleep,
       xF86XK_AudioRaiseVolume,
+      xF86XK_MonBrightnessDown,
+      xF86XK_MonBrightnessUp,
       xF86XK_AudioPrev,
       xF86XK_AudioPlay,
       xF86XK_AudioNext,
@@ -192,7 +194,7 @@ main = do
     `additionalKeys`
     [((myModMask                , xK_q     ), spawn restartXmonad)
     ,((myModMask .|. shiftMask  , xK_c     ), kill)
-    ,((myModMask .|. shiftMask  , xK_b     ), spawn "firefox")
+    ,((myModMask .|. shiftMask  , xK_b     ), spawn "google-chrome-stable")
     ,((myModMask .|. shiftMask  , xK_p     ), spawn "mpc prev")
     ,((myModMask .|. shiftMask  , xK_n     ), spawn "mpc next")
     ,((myModMask .|. shiftMask  , xK_i     ), spawn "xcalib -invert -alter")
@@ -248,6 +250,8 @@ main = do
     ,((myModMask                , xK_Return), currentWorkspace >>= getDir >>= spawnTerminalInDir)
     ,((0                        , xK_Print ), spawn "scrot & mplayer /usr/share/sounds/freedesktop/stereo/screen-capture.oga")
     ,((0                        , xF86XK_Sleep    ), spawn "pm-suspend")
+    ,((0                        , xF86XK_MonBrightnessUp      ), spawn "xbacklight -inc 10")
+    ,((0                        , xF86XK_MonBrightnessDown    ), spawn "xbacklight -dec 10")
     --,((0                        , xF86XK_AudioMute), spawn "~/scripts/dvol2 -t")
     --,((0                        , xF86XK_AudioLowerVolume), spawn "~/scripts/dvol2 -d 2 & mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga")
     --,((0                        , xF86XK_AudioRaiseVolume ), spawn "~/scripts/dvol2 -i 2 & mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga")
