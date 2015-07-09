@@ -7,10 +7,7 @@ filetype off
 
 " set the runtime path to include vundle and initialize
 
-" windows
-set rtp+=C:/Users/t0rus/vimfiles/bundle/Vundle.vim
-
-" linux
+" *nix
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
@@ -24,12 +21,6 @@ Plugin 'altercation/vim-colors-solarized'
 " Syntastic
 Plugin 'scrooloose/syntastic'
 
-" Rust
-Plugin 'rust-lang/rust.vim'
-
-" Coffeescript support
-Plugin 'kchmck/vim-coffee-script'
-
 " Git
 Plugin 'tpope/vim-fugitive'
 
@@ -39,13 +30,16 @@ Plugin 'scrooloose/nerdcommenter'
 " Surround - Easy changing of quotes and stuff
 Plugin 'tpope/vim-surround'
 
-
 " Ctrlp full path fuzzy file finder
 Plugin 'kien/ctrlp.vim'
 
-
 " Ack from vim
 Plugin 'mileszs/ack.vim'
+
+" Language specific syntax highlighting
+Plugin 'derekwyatt/vim-scala'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'rust-lang/rust.vim'
 
 if !has("win32") || !has("win16")
   "Code Completion
@@ -118,7 +112,6 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
-
 
 " Autocmds
 
