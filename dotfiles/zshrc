@@ -6,18 +6,21 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 export TERM=xterm-256color
 
-parse_git_branch(){
-  ref=$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3)
-  if [ -n "$ref" ]; then echo "%{$fg[white]%}[%{$fg[cyan]%}$ref%{$fg[white]%}]"; fi
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 
+autoload -U colors && colors
 autoload -U promptinit
 autoload -U compinit && compinit
+autoload -Uz vcs_info
 zstyle ':completion:*' menu select
+zstyle ':vcs_info:git*' formats "%{$fg[white]%}[%{$reset_color%}%{$fg[blue]%}%b%{$fg[white]%}]%{$reset_color%} %a"
+
 promptinit
 plugins=(git brew npm coffee)
 
@@ -34,14 +37,17 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 PATH=$PATH:~/.cabal/bin
 PATH=$PATH:.cabal-sandbox/bin
 
+precmd(){
+  vcs_info
+}
 
-# Set up colors
-autoload -U colors && colors
 
 # Set up custom prompt
 setopt PROMPT_SUBST
 
-RPROMPT="$(parse_git_branch)%{$reset_color%}"
+RPROMPT="%{$fg[white]%}\${vcs_info_msg_0_}%{$reset_color%}"
+
 
 PROMPT="%{$fg[white]%}┌%{$reset_color%}[%{$fg[yellow]%}%n%{$reset_color%}@%{$fg[cyan]%}%m%{$reset_color%}]─[%{$fg[green]%}%d%{$reset_color%}]
 %{$fg[white]%}└─╼%{$reset_color%} "
+
