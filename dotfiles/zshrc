@@ -50,4 +50,3 @@ RPROMPT="%{$fg[white]%}\${vcs_info_msg_0_}%{$reset_color%}"
 
 PROMPT="%{$fg[white]%}┌%{$reset_color%}[%{$fg[yellow]%}%n%{$reset_color%}@%{$fg[cyan]%}%m%{$reset_color%}]─[%{$fg[green]%}%d%{$reset_color%}]
 %{$fg[white]%}└─╼%{$reset_color%} "
-
