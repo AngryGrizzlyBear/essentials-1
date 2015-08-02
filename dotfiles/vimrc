@@ -24,8 +24,8 @@ Plugin 'scrooloose/syntastic'
 " Git
 Plugin 'tpope/vim-fugitive'
 
-" NERD Commenter
-Plugin 'scrooloose/nerdcommenter'
+" Easy Commenting
+Plugin 'tpope/vim-commentary'
 
 " Surround - Easy changing of quotes and stuff
 Plugin 'tpope/vim-surround'
@@ -35,6 +35,12 @@ Plugin 'kien/ctrlp.vim'
 
 " Ack from vim
 Plugin 'mileszs/ack.vim'
+
+" Improved vim status bar
+Plugin 'bling/vim-airline'
+
+" Indent guides
+Plugin 'Yggdroot/indentLine'
 
 " Language specific syntax highlighting
 Plugin 'derekwyatt/vim-scala'
@@ -59,7 +65,6 @@ if !has("win32") || !has("win16")
   " to move between window panes in tmux or vim
   Plugin 'christoomey/vim-tmux-navigator'
 endif
-
 
 " Markdown
 Plugin 'godlygeek/tabular'
@@ -154,3 +159,14 @@ if exists('+colorcolumn')
 else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
+
+" Indent lines customizations
+
+" Color customizations
+" let g:indentLine_color_term=###
+
+" Line indent guides are defaulted to off
+let g:indentLine_enabled=0
+
+" Leader + i will toggle line indent guides
+map <silent> <Leader>i :IndentLinesToggle<CR>

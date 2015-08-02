@@ -252,9 +252,9 @@ main = do
     ,((0                        , xF86XK_Sleep    ), spawn "pm-suspend")
     ,((0                        , xF86XK_MonBrightnessUp      ), spawn "xbacklight -inc 10")
     ,((0                        , xF86XK_MonBrightnessDown    ), spawn "xbacklight -dec 10")
-    --,((0                        , xF86XK_AudioMute), spawn "~/scripts/dvol2 -t")
-    --,((0                        , xF86XK_AudioLowerVolume), spawn "~/scripts/dvol2 -d 2 & mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga")
-    --,((0                        , xF86XK_AudioRaiseVolume ), spawn "~/scripts/dvol2 -i 2 & mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga")
+    ,((0                        , xF86XK_AudioMute), spawn "~/scripts/dvol2 -t")
+    ,((0                        , xF86XK_AudioLowerVolume), spawn "~/scripts/dvol2 -d 2 & mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga")
+    ,((0                        , xF86XK_AudioRaiseVolume ), spawn "~/scripts/dvol2 -i 2 & mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga")
     ]
     `additionalMouseBindings`
     [((myModMask, 6), \_ -> moveTo Next NonEmptyWS)
