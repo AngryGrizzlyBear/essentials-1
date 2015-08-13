@@ -127,6 +127,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd FileType rust setlocal shiftwidth=2 tabstop=2
 autocmd BufRead,BufNewFile *.rs set filetype=rust
 
+" Disable the rust style guide recommended 4 space indentation
+let g:rust_recommended_style=0
 
 " Hotkeys
 " Note noremap is a normal mode non-recursive mapping
