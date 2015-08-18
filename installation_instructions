@@ -12,7 +12,7 @@ efivar -l
 # Nuke disk (just in case)
 sgdisk -Z /dev/sdX
 
-# Set disk partition alignment and clear all partition data 
+# Set disk partition alignment and clear all partition data
 sgdisk -a 2048 -o /dev/sdX
 
 # New partition for boot, 0 to 200M
@@ -156,11 +156,16 @@ VBoxClient-all
 (diy)
 
 ### Editor (gvim for clipboard support, use console vim provided)
-pacman -S gvim 
+pacman -S gvim
 
 ### Window management
+### ALTERANTIVE (Awesome WM)
+### pacman -S awesome vicious
+### echo "exec awesome" >> ~/.xinitrc
+### mkdir -p ~/.config/awesome/
+### cp /etc/xdg/awesome/rc.lua ~/.config/awesome
 pacman -S xorg-xinit xmonad xmonad-contrib
-cat `exec xmonad` >> ~/.xinitrc 
+cat `exec xmonad` >> ~/.xinitrc
 
 #### Extra: System repair via livecd quick commands
 cryptsetup luksOpen /dev/sdX2 cryptdisk

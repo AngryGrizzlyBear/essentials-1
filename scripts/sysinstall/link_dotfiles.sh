@@ -8,7 +8,7 @@
 
 dir=~/essentials/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc compton.conf irssi tmux.conf vimrc xinitrc xmonad Xresources zshrc"    # list of files/folders to symlink in homedir
+files="bashrc compton.conf irssi tmux.conf vimrc xinitrc Xresources zshrc"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -22,10 +22,13 @@ echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
 for file in $files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
     mv ~/.$file ~/dotfiles_old/
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+# awesome theming symlink
+ln -s $dir/awesome ~/.config/awesome
