@@ -37,6 +37,10 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 PATH=$PATH:~/.cabal/bin
 PATH=$PATH:.cabal-sandbox/bin
 
+# Git Town
+PATH=$PATH:~/git-town/src
+MANPATH=$MANPATH:~/git-town/man
+
 precmd(){
   vcs_info
 }
