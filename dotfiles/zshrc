@@ -5,13 +5,31 @@ export LANG=en_US.UTF-8
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export TERM=xterm-256color
+export ITERM_24BIT=1
 
 alias irssi='TERM=screen-256color irssi'
+
+# This is for the mac GUI version of emacs.
+alias emacs-gui='open -a /Applications/Emacs.app $1'
 
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
+function npm_chpwd_hook() {
+  NPMPATH="$(npm bin)"
+
+  if [ -d "$NPMPATH" ]; then
+    PATH=$NPMPATH:$PRENPMPATH
+  else
+    PATH=$PRENPMPATH
+  fi
+
+  export PATH=$PATH
+}
+
+export PRENPMPATH=$PATH
+npm_chpwd_hook
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
@@ -56,3 +74,5 @@ RPROMPT="%{$fg[white]%}\${vcs_info_msg_0_}%{$reset_color%}"
 
 PROMPT="%{$fg[white]%}┌%{$reset_color%}[%{$fg[yellow]%}%n%{$reset_color%}@%{$fg[cyan]%}%m%{$reset_color%}]─[%{$fg[green]%}%d%{$reset_color%}]
 %{$fg[white]%}└─╼%{$reset_color%} "
+
+npm_chpwd_hook
