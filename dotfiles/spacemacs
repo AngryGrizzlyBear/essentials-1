@@ -211,6 +211,7 @@ layers configuration. You are free to put any user code."
   (defun my/neotree-hook (_unused)
     (linum-mode -1))
   (add-hook 'neo-after-create-hook 'my/neotree-hook)
+  (add-hook 'before-save-hook 'delete-trailing-whitespace)
 )
 
 
