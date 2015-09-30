@@ -198,7 +198,6 @@ values."
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init'.  You are free to put any
 user code."
-
   )
 
 (defun dotspacemacs/user-config ()
@@ -209,6 +208,9 @@ layers configuration. You are free to put any user code."
   (setq indent-tabs-mode nil)
   (setq tab-width 2)
   (setq c-basic-offset 2)
+  (defun my/neotree-hook (_unused)
+    (linum-mode -1))
+  (add-hook 'neo-after-create-hook 'my/neotree-hook)
 )
 
 
