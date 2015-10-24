@@ -3,7 +3,7 @@
 (defvar my-packages '(ag clojure-mode coffee-mode css-mode flycheck
                          flycheck-clojure flycheck-haskell flycheck-rust
                          flycheck-pos-tip gitignore-mode haskell-mode js2-mode
-                         less-css-mode neotree paredit scss-mode powerline
+                         less-css-mode neotree paredit scss-mode powerline projectile
                          rust-mode solarized-theme wrap-region)
   "Packages to make sure are installed")
  
