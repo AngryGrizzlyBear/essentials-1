@@ -20,3 +20,4 @@ tramp
 .cask/
 *.last
 /elpa/*
+/.emacs.d/elpa/*
