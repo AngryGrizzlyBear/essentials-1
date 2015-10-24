@@ -1,7 +1,10 @@
 (require 'cl)
  
-(defvar my-packages
-  '(ack-and-a-half clojure-mode coffee-mode paredit solarized-theme)
+(defvar my-packages '(ag clojure-mode coffee-mode css-mode flycheck
+                         flycheck-clojure flycheck-haskell flycheck-rust
+                         flycheck-pos-tip gitignore-mode haskell-mode js2-mode
+                         less-css-mode neotree paredit scss-mode powerline
+                         rust-mode solarized-theme wrap-region)
   "Packages to make sure are installed")
  
 (defun my-packages-installed-p ()
