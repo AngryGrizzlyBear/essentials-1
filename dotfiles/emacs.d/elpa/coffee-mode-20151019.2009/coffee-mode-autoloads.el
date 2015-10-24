@@ -3,9 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "coffee-mode" "coffee-mode.el" (22059 7732
-;;;;;;  93350 790000))
-;;; Generated autoloads from coffee-mode.el
+;;;### (autoloads nil "coffee-mode" "../../../../../.emacs.d/elpa/coffee-mode-20151019.2009/coffee-mode.el"
+;;;;;;  "bda249afd8bc51e101a105d0c1b127b6")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/coffee-mode-20151019.2009/coffee-mode.el
 
 (autoload 'coffee-mode "coffee-mode" "\
 Major mode for editing CoffeeScript.
@@ -21,6 +21,12 @@ Major mode for editing CoffeeScript.
 (add-to-list 'auto-mode-alist '("\\.cson\\'" . coffee-mode))
 
 (add-to-list 'interpreter-mode-alist '("coffee" . coffee-mode))
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/coffee-mode-20151019.2009/coffee-mode-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/coffee-mode-20151019.2009/coffee-mode.el")
+;;;;;;  (22059 19414 322903 585000))
 
 ;;;***
 
