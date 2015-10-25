@@ -1,10 +1,18 @@
 (require 'package)
+(require 'flx-ido)
 
 ;;-------------------------------------------------------------------------------------
 ;; Hide Startup Message
 ;;-------------------------------------------------------------------------------------
 
 (setq inhibit-startup-message t)
+
+;;-------------------------------------------------------------------------------------
+;; Disable Splash Screen
+;;-------------------------------------------------------------------------------------
+
+(defvar inhibit-splash-screen)
+(setq inhibit-splash-screen t)
 
 ;;-------------------------------------------------------------------------------------
 ;; Enable MELPA
@@ -31,7 +39,7 @@
 (load-theme 'solarized-dark t)
 
 ;; 10 pt font
-(set-default-font "inconsolata")
+(set-frame-font "inconsolata")
 (set-face-attribute 'default nil :height 100)
 
 (powerline-center-theme)
@@ -41,14 +49,22 @@
 ;;-------------------------------------------------------------------------------------
 
 (global-linum-mode t)
+
+(defvar linum-format)
 (setq linum-format "%4d \u2502 ")
 
 ;;-------------------------------------------------------------------------------------
 ;; Ido Mode
 ;;-------------------------------------------------------------------------------------
 
+
+(defvar ido-enable-flex-matching)
+(defvar ido-everywhere)
+(defvar ido-use-faces)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
+(setq ido-use-faces nil)
+(flx-ido-mode 1)
 (ido-mode 1)
 
 ;;-------------------------------------------------------------------------------------
@@ -63,6 +79,14 @@
 ;;-------------------------------------------------------------------------------------
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
+(with-eval-after-load 'flycheck
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+
+;;-------------------------------------------------------------------------------------
+;; Projectile Configuration
+;;-------------------------------------------------------------------------------------
+
+(projectile-global-mode)
 
 ;;-------------------------------------------------------------------------------------
 ;; Key Bindings
