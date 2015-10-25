@@ -17,4 +17,5 @@ tramp
 /auto/
 .cask/
 *.last
-/dotfiles/.emacs.d/elpa/*
+elpa/
+projectile-bookmarks.eld
