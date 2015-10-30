@@ -90,7 +90,7 @@ vfat ext4 dm_mod dm_crypt aes_x86_64 i915
 mkinitcpio -p linux
 
 # add options to /etc/lvm/lvm.conf
-issue_discards 1
+issue_discards = 1
 
 ### Timezone (customize of course)
 ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
@@ -107,11 +107,8 @@ pacman -S iw wpa_supplicant dialog wpa_actiond
 ### Root password
 passwd
 
-### bootloader ###
-pacman -S gummiboot-efi
-
-# set up gummiboot
-/usr/bin/gummiboot install
+# set up bootloader
+bootctl install
 
 # create conf
 # /boot/loader/loader.conf
@@ -128,8 +125,8 @@ options cryptdevice=/dev/sdX2:vgroup root=/dev/mapper/vgroup-lvroot ro
 ###### After reboot
 
 ### Set up user account
-useradd -m -g users -G wheel -s /bin/bash alex
-passwd alex
+useradd -m -g users -G wheel -s /bin/bash angrygoats
+passwd angrygoats
 
 
 # Add to sudoers (uncomment wheel comment)
