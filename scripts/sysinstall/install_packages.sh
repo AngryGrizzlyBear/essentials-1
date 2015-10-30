@@ -28,7 +28,7 @@ install_yaourt
 
 
 # Add AUR packages to install here
-packages=("wget", "emacs", "gvim", "openssh", "steam", "zsh", "zsh-completions", "tmux") 
+packages=("wget", "emacs", "gvim", "openssh", "steam", "zsh", "zsh-completions", "tmux", "i3") 
 
 # Execute the array of commands
 for (( i=0; i<${#packages[@]}; i++ )); do
