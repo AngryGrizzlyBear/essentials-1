@@ -99,7 +99,7 @@ URxvt.perl-ext-common:  default,matcher,tabbedex,font-size,vtwheel,fullscreen,se
 
 !enabling clickable links:
 
-URxvt.url-launcher:      /usr/bin/google-chrom
+URxvt.url-launcher:      /usr/bin/google-chrome
 URxvt.matcher.button:   1
 
 !urxvt scrolling options and cursor style:
@@ -132,12 +132,12 @@ Xft.antialias: 1
 Xft.hinting:    1
 Xft.hintstyle:  hintslight
 Xft.rgba:       rgb
-xterm*faceName: Liberation Mono
+xterm*faceName: Inconsolata
 xterm*faceSize: 7 7 7 7 7 7 7
 !URxvt*font: xft:Liberation Mono-8
 !URxvt*boldFont: xft:Liberation Mono:bold
 URxvt*font: xft:Inconsolata:size=8:antialias=true:hinting=true
-URxvt*boldFont: xft:Ubuntu Mono:bold
+URxvt*boldFont: xft:Inconsolata:bold
 URxvt.letterSpace: -1
 
 URxvt*termName: rxvt-unicode

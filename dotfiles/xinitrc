@@ -4,4 +4,5 @@ xrdb ~/.Xresources
 # zsh ~/.fehbg &
 # exec ~/essentials/scripts/sysinit/xmonad_start.sh
 # exec awesome
+feh --bg-scale ~/essentials/backgrounds/glass-blue-bg.jpg
 exec i3

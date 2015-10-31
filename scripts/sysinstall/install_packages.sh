@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#
 # An almost completely untested automated package install script for new installs.
 # 
 # This file is relatively untested and stuff is generally added to it mostly
@@ -30,15 +30,27 @@ sudo pacman -Syu
 # Install yaourt before doing anything else
 install_yaourt
 
+# Add infinality-bundle to pacman.conf
+echo "" >> /etc/pacman.conf
+echo "[infinality-bundle]" >> /etc/pacman.conf
+echo "Server = http://bohoomil.com/repo/$arch" >> /etc/pacman.conf
+echo "" >> /etc/pacman.conf
 
-# Add AUR packages to install here
+# If these two commands fail with an error about dirmngr, you will probably need to
+# su into root and run dirmngr. This will error and create the .gnupg dotfile and the
+# other files needed to make this work. 
+sudo pacman-key -r 962DDE58
+sudo pacman-key --lsign-key 962DDE58
+
+# Add AUR packages to install here - Change the graphics driver if you aren't using
+# an Intel card.
 packages=("wget", "emacs", "gvim", "openssh", "steam", "zsh", "zsh-completions", "tmux",
-	  "xf86-video-fbdev", "xf86-video-intel", "xf86-video-vesa", "xorg", "xorg-xinit",
-	  "dmenu", "ttf-inconsolata", "i3", "google-chrome", "clojure", "leiningen",
-	  "lieningen-completions", "npm") 
+	        "xf86-video-fbdev", "xf86-video-intel", "xf86-video-vesa", "alsa-utils", "xorg",
+          "xorg-xinit", "dmenu", "ttf-inconsolata", "i3", "google-chrome", "clojure", "leiningen",
+	        "xclip", "playerctl", "infinality-bundle", "lieningen-completions", "npm", "conky", "feh") 
 
 # Reload the font cache
-fc-cache
+fc-cache -fv
 
 
 # Execute the array of commands
@@ -59,4 +71,8 @@ for (( i=0; i<${#commands[@]}; i++ )); do
   
   eval "yaourt -S ${commands[$i]}"
 done
+
+# Set locale correctly
+sudo sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen  
+sudo locale-gen
 
