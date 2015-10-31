@@ -23,12 +23,23 @@ function install_yaourt {
   sudo pacman -U yaourt*.pkg.tar.xz
 }
 
+# Make sure system is up to date
+sudo pacman -Syu
+
+
 # Install yaourt before doing anything else
 install_yaourt
 
 
 # Add AUR packages to install here
-packages=("wget", "emacs", "gvim", "openssh", "steam", "zsh", "zsh-completions", "tmux", "i3") 
+packages=("wget", "emacs", "gvim", "openssh", "steam", "zsh", "zsh-completions", "tmux",
+	  "xf86-video-fbdev", "xf86-video-intel", "xf86-video-vesa", "xorg", "xorg-xinit",
+	  "dmenu", "ttf-inconsolata", "i3", "google-chrome", "clojure", "leiningen",
+	  "lieningen-completions", "npm") 
+
+# Reload the font cache
+fc-cache
+
 
 # Execute the array of commands
 for (( i=0; i<${#packages[@]}; i++ )); do

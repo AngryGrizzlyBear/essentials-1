@@ -155,6 +155,11 @@ VBoxClient-all
 ### Editor (gvim for clipboard support, use console vim provided)
 pacman -S gvim
 
+### Check your particular graphics driver wiki and install and configure
+### Xorg for it, as well as configure the correct options for modprobe
+### and other files.
+
+
 ### Window management
 ### ALTERANTIVE (Awesome WM)
 ### pacman -S awesome vicious

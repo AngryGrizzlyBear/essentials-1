@@ -3,4 +3,5 @@
 xrdb ~/.Xresources
 # zsh ~/.fehbg &
 # exec ~/essentials/scripts/sysinit/xmonad_start.sh
-exec awesome
+# exec awesome
+exec i3
