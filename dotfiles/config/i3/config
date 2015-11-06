@@ -32,6 +32,11 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# start htop
+
+# Start htop (tool for watching system info)
+bindsym $mod+t exec urxvt -geometry 80x30 -e htop
+
 # kill focused window
 bindsym $mod+Shift+q kill
 

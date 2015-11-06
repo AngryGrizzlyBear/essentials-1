@@ -47,7 +47,8 @@ sudo pacman-key --lsign-key 962DDE58
 packages=("wget", "emacs", "gvim", "openssh", "steam", "zsh", "zsh-completions", "tmux",
 	        "xf86-video-fbdev", "xf86-video-intel", "xf86-video-vesa", "alsa-utils", "xorg",
           "xorg-xinit", "dmenu", "ttf-inconsolata", "i3", "google-chrome", "clojure", "leiningen",
-	        "xclip", "playerctl", "infinality-bundle", "lieningen-completions", "npm", "conky", "feh", "networkmanager") 
+	        "xclip", "playerctl", "infinality-bundle", "lieningen-completions", "npm", "conky",
+          "feh", "networkmanager", "htop") 
 
 # Reload the font cache
 fc-cache -fv
