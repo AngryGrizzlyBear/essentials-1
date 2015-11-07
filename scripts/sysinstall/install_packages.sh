@@ -70,10 +70,13 @@ commands=()
 for (( i=0; i<${#commands[@]}; i++ )); do
   printf "\n **** Running: ${commands[$i]} ****\n\n"
   
-  eval "yaourt -S ${commands[$i]}"
+  eval "yaourt -S ${commands[$i]} | yes"
 done
 
 # Set locale correctly
 sudo sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen  
 sudo locale-gen
+
+# install dotfiles
+# run dotfile installer script
 
