@@ -1,4 +1,4 @@
-#!/bin/bash
+Y#!/bin/bash
 #
 # An almost completely untested automated package install script for new installs.
 # 
@@ -48,7 +48,7 @@ packages=("wget", "emacs", "gvim", "openssh", "steam", "zsh", "zsh-completions",
 	        "xf86-video-fbdev", "xf86-video-intel", "xf86-video-vesa", "alsa-utils", "xorg",
           "xorg-xinit", "dmenu", "ttf-inconsolata", "i3", "google-chrome", "clojure", "leiningen",
 	        "xclip", "playerctl", "infinality-bundle", "lieningen-completions", "npm", "conky",
-          "feh", "networkmanager", "htop") 
+          "feh", "networkmanager", "htop", "physlock") 
 
 # Reload the font cache
 fc-cache -fv
@@ -80,3 +80,4 @@ sudo locale-gen
 # install dotfiles
 # run dotfile installer script
 
+# configure physlock
