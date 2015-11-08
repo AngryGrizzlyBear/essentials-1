@@ -129,7 +129,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # Window configurations
 for_window [class="^.*"] border pixel 1
-for_window [title="htop"] floating enable
+# for_window [title="htop"] floating enable
 
 # bind function keys
 bindsym XF86AudioMute           exec ponymix toggle
