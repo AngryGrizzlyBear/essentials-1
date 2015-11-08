@@ -135,6 +135,8 @@ for_window [class="^.*"] border pixel 1
 bindsym XF86AudioMute           exec ponymix toggle
 bindsym XF86AudioLowerVolume    exec ponymix decrease 5
 bindsym XF86AudioRaiseVolume    exec ponymix increase 5
+bindsym XF86MonBrightnessUp     exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown   exec xbacklight -dec 5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
