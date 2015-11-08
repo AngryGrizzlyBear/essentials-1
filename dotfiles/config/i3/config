@@ -11,8 +11,6 @@
 
 set $mod Mod4
 
-for_window [class="^.*"] border pixel 1
-
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:Inconsolata 8
@@ -128,6 +126,15 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+
+# Window configurations
+for_window [class="^.*"] border pixel 1
+for_window [title="htop"] floating enable
+
+# bind function keys
+bindsym XF86AudioMute           exec ponymix toggle
+bindsym XF86AudioLowerVolume    exec ponymix decrease 5
+bindsym XF86AudioRaiseVolume    exec ponymix increase 5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
