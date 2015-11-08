@@ -77,7 +77,14 @@ done
 sudo sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen  
 sudo locale-gen
 
+
+# TODO: This section
+
 # install dotfiles
 # run dotfile installer script
 
 # configure physlock
+# copy services/screensaver.service into /etc/systemd/system/ after
+# copy services/10-physlock to /etc/pm/sleep.d/10-vlock
+# replacing USERNAME with their name via sed.
+# remember to use sudo

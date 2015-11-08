@@ -16,8 +16,6 @@ repository for the same thing. The directory structure is as follows:
 Take care with the dotfiles. My configurations change the terminal colors to be solarized dark. If you do not like them
 they can be easily changed in the Xresources dotfile.
 
-
-
 # Issues
 
 There are of course a things that aren't covered (yet).
@@ -32,7 +30,8 @@ There are of course a things that aren't covered (yet).
 
 # Software To Install
 
-Below is a not comprehensive list of software you should install and configure
+Below is a not a comprehensive list of software you should install and configure. The *install_packages.sh* script is
+a work in progress that will get the system up and running with everything I am using.
 
 
 ## Package Management
@@ -50,15 +49,10 @@ background to show the wallpaper. If you use sh instead of zsh, change it approp
 ## Display
 1. xorg
 2. xorg-xinit
-3. xmonad
-4. xmonad-contrib
-5. bar
+3. i3
 
 ## Screen Locking
-1. Physlock
-
-## Compositing
-1. Compton
+1. Physlock 
 
 ## Fonts
 1. infinality-bundle
@@ -72,5 +66,5 @@ background to show the wallpaper. If you use sh instead of zsh, change it approp
 1. GVim
 
 ## Browsing
-1. Google Chrome (With a dark theme)
+1. Google Chrome
 
