@@ -8,6 +8,7 @@ export TERM=xterm-256color
 export ITERM_24BIT=1
 
 alias irssi='TERM=screen-256color irssi'
+alias scheme='rlwrap scheme'
 
 # This is for the mac GUI version of emacs.
 alias emacs-gui='open -a /Applications/Emacs.app $1'
