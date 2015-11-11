@@ -4,9 +4,16 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export VISUAL=vim
 export EDITOR="$VISUAL"
-export TERM=xterm-256color
 export ITERM_24BIT=1
 
+if [[ `uname` == 'Linux' ]]
+then
+  export TERM=xterm
+else
+  export TERM=xterm-256color
+fi
+
+alias emacs='emacs -nw'
 alias irssi='TERM=screen-256color irssi'
 alias scheme='rlwrap mit-scheme'
 
