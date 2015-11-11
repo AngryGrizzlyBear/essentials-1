@@ -5,13 +5,7 @@ export LANG=en_US.UTF-8
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export ITERM_24BIT=1
-
-if [[ `uname` == 'Linux' ]]
-then
-  export TERM=xterm
-else
-  export TERM=xterm-256color
-fi
+export TERM=xterm-256color
 
 alias emacs='emacs -nw'
 alias irssi='TERM=screen-256color irssi'

@@ -4,7 +4,7 @@
                          flycheck-clojure flycheck-haskell flycheck-rust
                          flycheck-pos-tip flx-ido gitignore-mode haskell-mode js2-mode
                          less-css-mode neotree paredit scss-mode powerline projectile
-                         rust-mode solarized-theme wrap-region)
+                         rust-mode color-theme-solarized wrap-region)
   "Packages to make sure are installed")
  
 (defun my-packages-installed-p ()

@@ -38,7 +38,7 @@
 ;; Theme
 ;;-------------------------------------------------------------------------------------
 
-(load-theme 'solarized-dark t)
+(load-theme 'solarized t)
 
 ;; 10 pt font
 (set-frame-font "inconsolata")
@@ -68,6 +68,15 @@
 (setq ido-use-faces nil)
 (flx-ido-mode 1)
 (ido-mode 1)
+
+;;-------------------------------------------------------------------------------------
+;; ZSH script detection
+;;------------------------------------------------------------------------------------
+
+(add-hook 'sh-mode-hook
+          (lambda ()
+            (if (string-match "\\.zsh$" buffer-file-name)
+                                (sh-set-shell "zsh"))))
 
 ;;-------------------------------------------------------------------------------------
 ;; Alignment
@@ -125,8 +134,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
- '(inhibit-startup-screen t))
+    ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
