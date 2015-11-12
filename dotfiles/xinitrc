@@ -5,4 +5,5 @@ xrdb ~/.Xresources
 # exec ~/essentials/scripts/sysinit/xmonad_start.sh
 # exec awesome
 feh --bg-scale ~/essentials/backgrounds/glass-blue-bg.jpg
+setkbmap -option caps:escape
 exec i3

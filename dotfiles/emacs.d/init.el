@@ -106,6 +106,7 @@
 ;; Unbind C-t from transpose
 (global-set-key (kbd "C-t") nil)
 
+(global-set-key (kbd "C-d") nil)
 
 ;; Neotree binds are prefixed by C-t
 
@@ -122,9 +123,10 @@
 (global-set-key (kbd "M-k") 'windmove-up)
 (global-set-key (kbd "M-l") 'windmove-right)
 
+;; Delete surrounding
+(global-set-key (kbd "C-d s") 'delete-pair)
 
-;;-------------------------------------------------------------------------------------
-;; Custom
+
 ;;-------------------------------------------------------------------------------------
 
 (custom-set-variables
