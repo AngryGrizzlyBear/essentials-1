@@ -7,6 +7,15 @@
 (setq inhibit-startup-message t)
 
 ;;-------------------------------------------------------------------------------------
+;; Always follow symbolic links to version controlled files
+;;
+;; I prefer this option because I generally only get this message when I edit
+;; a dotfile under version control, and repeatedly typing "yes" is annoying.
+;;-------------------------------------------------------------------------------------
+
+(setq vc-follow-symlinks t)
+
+;;-------------------------------------------------------------------------------------
 ;; Disable Splash Screen
 ;;-------------------------------------------------------------------------------------
 
@@ -38,6 +47,8 @@
 ;; Theme
 ;;-------------------------------------------------------------------------------------
 
+(set-frame-parameter nil 'background-mode 'dark)
+(set-terminal-parameter nil 'background-mode 'dark)
 (load-theme 'solarized t)
 
 ;; 10 pt font
