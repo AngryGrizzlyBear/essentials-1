@@ -16,6 +16,12 @@
 (setq vc-follow-symlinks t)
 
 ;;-------------------------------------------------------------------------------------
+;; Small fix for keyboard internationalization problems
+;;-------------------------------------------------------------------------------------
+
+(set-keyboard-coding-system nil)
+
+;;-------------------------------------------------------------------------------------
 ;; Disable Splash Screen
 ;;-------------------------------------------------------------------------------------
 
@@ -67,9 +73,14 @@
 (setq linum-format "%4d \u2502 ")
 
 ;;-------------------------------------------------------------------------------------
-;; Ido Mode
+;; Hook framemove into windmove for seamless window to frame transitions
 ;;-------------------------------------------------------------------------------------
 
+(setq framemove-hook-into-windmove t)
+
+;;-------------------------------------------------------------------------------------
+;; Ido Mode
+;;-------------------------------------------------------------------------------------
 
 (defvar ido-enable-flex-matching)
 (defvar ido-everywhere)
@@ -118,6 +129,7 @@
 (global-set-key (kbd "C-t") nil)
 
 (global-set-key (kbd "C-d") nil)
+(global-set-key (kbd "C-m") nil)
 
 ;; Neotree binds are prefixed by C-t
 
@@ -137,6 +149,11 @@
 ;; Delete surrounding
 (global-set-key (kbd "C-d s") 'delete-pair)
 
+;; Git utility
+(global-set-key (kbd "C-m s") 'magit-status)
+(global-set-key (kbd "C-m b") 'magit-blame-popup)
+(global-set-key (kbd "C-m p") 'magit-dispatch-popup)
+(global-set-key (kbd "C-m f") 'magit-file-popup)
 
 ;;-------------------------------------------------------------------------------------
 

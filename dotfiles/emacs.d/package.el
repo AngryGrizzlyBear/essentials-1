@@ -1,9 +1,9 @@
 (require 'cl)
  
-(defvar my-packages '(ag clojure-mode coffee-mode css-mode flycheck
+(defvar my-packages '(ag auto-complete clojure-mode coffee-mode css-mode framemove flycheck
                          flycheck-clojure flycheck-haskell flycheck-rust
                          flycheck-pos-tip flx-ido gitignore-mode haskell-mode js2-mode
-                         less-css-mode neotree paredit scss-mode powerline projectile
+                         less-css-mode magit neotree paredit scss-mode powerline projectile
                          rust-mode color-theme-solarized wrap-region)
   "Packages to make sure are installed")
  
