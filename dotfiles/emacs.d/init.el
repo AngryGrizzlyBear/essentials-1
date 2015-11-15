@@ -130,6 +130,7 @@
 
 (global-set-key (kbd "C-d") nil)
 (global-set-key (kbd "C-m") nil)
+(global-set-key (kbd "RET") nil)
 
 ;; Neotree binds are prefixed by C-t
 
@@ -147,13 +148,19 @@
 (global-set-key (kbd "M-l") 'windmove-right)
 
 ;; Delete surrounding
+
 (global-set-key (kbd "C-d s") 'delete-pair)
 
 ;; Git utility
+
 (global-set-key (kbd "C-m s") 'magit-status)
 (global-set-key (kbd "C-m b") 'magit-blame-popup)
 (global-set-key (kbd "C-m p") 'magit-dispatch-popup)
 (global-set-key (kbd "C-m f") 'magit-file-popup)
+
+;; Fix RET
+
+(global-set-key (kbd "RET") 'electric-newline-and-maybe-indent)
 
 ;;-------------------------------------------------------------------------------------
 
