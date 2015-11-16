@@ -19,3 +19,5 @@ tramp
 *.last
 elpa/
 projectile-bookmarks.eld
+*.dat
+*.eld
