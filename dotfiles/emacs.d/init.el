@@ -82,6 +82,9 @@
 (helm-mode t)
 (helm-adaptive-mode t) ;; Sort results by most frequently used
 
+(require 'helm-projectile)
+(helm-projectile-on)
+
 ;; Use ag instead of grep for in-file searches in helm-find-file 
 
 (when (executable-find "ag")
@@ -141,6 +144,9 @@
 (global-set-key (kbd "C-m") nil)
 (global-set-key (kbd "RET") nil)
 
+;; Unbind C-c p f from projectile
+(global-set-key (kbd "C-c p f") nil)
+
 ;; Neotree binds are prefixed by C-t
 
 (global-set-key (kbd "C-t t") 'neotree-toggle)
@@ -173,6 +179,7 @@
 
 ;; Helm
 
+(global-set-key (kbd "C-c p f") 'helm-projectile-find-file)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 ;;-------------------------------------------------------------------------------------
