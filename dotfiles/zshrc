@@ -14,30 +14,18 @@ alias scheme='rlwrap mit-scheme'
 # This is for the mac GUI version of emacs.
 alias emacs-gui='open -a /Applications/Emacs.app $1'
 
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
 # This is for nix if it exists
-if [ -f ~/.nix-profile/etc/profile.d/nix.sh ]
+if [ -f ~/.nix-profile/etc/profile.d/nix.sh ];
 then
-  . ~/.nix-profile/etc/profile.d/nix.sh
+  source ~/.nix-profile/etc/profile.d/nix.sh
 fi
 
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-function npm_chpwd_hook() {
-  NPMPATH="$(npm bin)"
-
-  if [ -d "$NPMPATH" ]; then
-    PATH=$NPMPATH:$PRENPMPATH
-  else
-    PATH=$PRENPMPATH
-  fi
-
-  export PATH=$PATH
-}
-
-export PRENPMPATH=$PATH
-npm_chpwd_hook
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
@@ -54,25 +42,20 @@ plugins=(git brew npm coffee)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 . ~/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
 # Haskell stuff
-PATH=$PATH:~/.cabal/bin
-PATH=$PATH:.cabal-sandbox/bin
+export PATH=~/.cabal/bin:$PATH
+export PATH=.cabal-sandbox/bin:$PATH
 
 # Git Town
-PATH=$PATH:~/git-town/src
+export PATH=~/git-town/src:$PATH
 MANPATH=$MANPATH:~/git-town/man
 
 precmd(){
   vcs_info
 }
-
 
 # Set up custom prompt
 setopt PROMPT_SUBST
@@ -83,4 +66,17 @@ RPROMPT="%{$fg[white]%}\${vcs_info_msg_0_}%{$reset_color%}"
 PROMPT="%{$fg[white]%}┌%{$reset_color%}[%{$fg[yellow]%}%n%{$reset_color%}@%{$fg[cyan]%}%m%{$reset_color%}]─[%{$fg[green]%}%d%{$reset_color%}]
 %{$fg[white]%}└─╼%{$reset_color%} "
 
-npm_chpwd_hook
+# NOTE: 'Whence' is the ZSH idiom for bash's 'type'
+export PRENPMPATH=$PATH
+if [ -n "$(whence -f npm)" ]; 
+then
+  NPMPATH="$(npm bin)"
+
+  if [ -d "$NPMPATH" ]; then
+    PATH=$NPMPATH:$PRENPMPATH
+  else
+    PATH=$PRENPMPATH
+  fi
+
+  export PATH=$PATH
+fi
