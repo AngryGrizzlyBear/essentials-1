@@ -92,6 +92,17 @@
 (ido-mode 1)
 
 ;;-------------------------------------------------------------------------------------
+;; Enable Autocomplete
+;; 
+;; NOTE: You can replace the 't' in (setq ac-auto-start t) with a positive integer
+;;       to trigger autocompletion only after that number of characters. This will
+;;       improve performance on slower systems.
+;;-------------------------------------------------------------------------------------
+
+(global-auto-complete-mode t)
+(setq ac-auto-start t)
+
+;;-------------------------------------------------------------------------------------
 ;; ZSH script detection
 ;;------------------------------------------------------------------------------------
 
