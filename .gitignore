@@ -20,4 +20,4 @@ tramp
 elpa/
 projectile-bookmarks.eld
 *.dat
-*.eld
+helm-adaptive-history
