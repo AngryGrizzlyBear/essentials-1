@@ -193,7 +193,7 @@
 
 ;; Delete word
 
-(global-set-key (kbd "C-d d") 'delete-whole-line)
+(global-set-key (kbd "C-d d") 'kill-whole-line)
 
 ;; Git utility
 
