@@ -29,6 +29,31 @@
 (setq inhibit-splash-screen t)
 
 ;;--------------------------------------------------------------------------------------
+;; Handy editor stuff
+;;--------------------------------------------------------------------------------------
+
+(defun delete-trailing-blank-lines ()
+  "Deletes all blank lines at the end of the file, even the last one"
+  (interactive)
+  (save-excursion
+    (save-restriction
+      (widen)
+      (goto-char (point-max))
+      (delete-blank-lines)
+      (let ((trailnewlines (abs (skip-chars-backward "\n\t"))))
+        (if (> trailnewlines 0)
+            (progn
+              (delete-char trailnewlines)))))))
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; Comment this if you dont mind git diffs complaining about missing ending newlines.
+(setq require-final-newline t)
+
+;; Uncomment this if you dont mind git diffs complaining about missing ending newlines.
+; (add-hook 'before-save-hook 'delete-trailing-blank-lines)
+
+;;--------------------------------------------------------------------------------------
 ;; Enable MELPA
 ;;--------------------------------------------------------------------------------------
 
@@ -85,7 +110,7 @@
 (require 'helm-projectile)
 (helm-projectile-on)
 
-;; Use ag instead of grep for in-file searches in helm-find-file 
+;; Use ag instead of grep for in-file searches in helm-find-file
 
 (when (executable-find "ag")
   (setq helm-grep-default-command "ag -H --nogroup --nocolor %e %p %f"
@@ -93,7 +118,7 @@
 
 ;;-------------------------------------------------------------------------------------
 ;; Enable Autocomplete
-;; 
+;;
 ;; NOTE: You can replace the 't' in (setq ac-auto-start t) with a positive integer
 ;;       to trigger autocompletion only after that number of characters. This will
 ;;       improve performance on slower systems.
@@ -165,6 +190,10 @@
 ;; Delete surrounding
 
 (global-set-key (kbd "C-d s") 'delete-pair)
+
+;; Delete word
+
+(global-set-key (kbd "C-d d") 'delete-whole-line)
 
 ;; Git utility
 
