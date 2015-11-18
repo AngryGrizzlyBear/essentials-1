@@ -1,3 +1,15 @@
+;;--------------------------------------------------------------------------------------
+;;
+;;  Emacs Configuration file
+;;
+;;  NOTES:
+;;   - For stuff that requires privacy (such as ERC, Circe, or Email) place them in
+;;     a .private.el file in your home directory. This script will load that file.
+;;     This is the best way I could think of protecting sensitive data without making
+;;     it incredibly inconvenient for you.
+;;
+;;--------------------------------------------------------------------------------------
+
 (require 'package)
 
 ;;--------------------------------------------------------------------------------------
@@ -79,6 +91,27 @@
 (load-file "~/.emacs.d/package.el")
 
 ;;--------------------------------------------------------------------------------------
+;; Load private file
+;;--------------------------------------------------------------------------------------
+
+(when (file-exists-p "~/.private.el")
+  (load-file "~/.private.el")
+)
+
+;;--------------------------------------------------------------------------------------
+;; Enable ParEdit for Emacs lisp modes
+;;--------------------------------------------------------------------------------------
+
+(autoload 'enable-paredit-mode "paredit" t)
+(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+(add-hook 'clojure-mode-hook          #'enable-paredit-mode)
+
+;;--------------------------------------------------------------------------------------
 ;; Fill column indicator (currently set to 120 characters)
 ;;--------------------------------------------------------------------------------------
 
@@ -103,6 +136,12 @@
 ;;--------------------------------------------------------------------------------------
 
 (setq framemove-hook-into-windmove t)
+
+;;--------------------------------------------------------------------------------------
+;; Highlight matching parentheses when cursor is over one
+;;--------------------------------------------------------------------------------------
+
+(show-paren-mode 1)
 
 ;;--------------------------------------------------------------------------------------
 ;; Helm Configuration
