@@ -190,6 +190,9 @@
 ;; Unbind C-c p f from projectile
 (global-set-key (kbd "C-c p f") nil)
 
+;; Unbind C-s from Isearch to make room for helm-ag
+(global-set-key (kbd "C-s") nil)
+
 ;; Neotree binds are prefixed by C-t
 
 (global-set-key (kbd "C-t t") 'neotree-toggle)
@@ -209,7 +212,7 @@
 
 (global-set-key (kbd "C-d s") 'delete-pair)
 
-;; Delete word
+;; Kill whole line
 
 (global-set-key (kbd "C-d d") 'kill-whole-line)
 
@@ -228,6 +231,7 @@
 
 (global-set-key (kbd "C-c p f") 'helm-projectile-find-file)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-s") 'helm-do-ag-this-file)
 
 ;;-------------------------------------------------------------------------------------
 
