@@ -11,8 +11,8 @@ tramp
 .org-id-locations
 *_archive
 *_flymake.*
-/eshell/history
-/eshell/lastdir
+*/eshell/history
+*/eshell/lastdir
 *.rel
 /auto/
 .cask/
