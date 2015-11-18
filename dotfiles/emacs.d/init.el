@@ -29,6 +29,13 @@
 (setq inhibit-splash-screen t)
 
 ;;--------------------------------------------------------------------------------------
+;; Enable auto-refresh to keep buffers up to date when git or another program
+;; modifies them
+;;--------------------------------------------------------------------------------------
+
+(global-auto-revert-mode t)
+
+;;--------------------------------------------------------------------------------------
 ;; Handy editor stuff
 ;;--------------------------------------------------------------------------------------
 
@@ -84,6 +91,17 @@
 (set-face-attribute 'default nil :height 100)
 
 (powerline-center-theme)
+
+;;--------------------------------------------------------------------------------------
+;; Fill column indicator (currently set to 120 characters)
+;;--------------------------------------------------------------------------------------
+
+(require 'fill-column-indicator)
+
+(setq fci-rule-width 1)
+(setq fci-rule-color "black")
+(setq fci-rule-column 120)
+(add-hook 'after-change-major-mode-hook 'fci-mode)
 
 ;;--------------------------------------------------------------------------------------
 ;; Line Numbering - Note: Might not look good with files with 10,000 or more lines
@@ -197,10 +215,10 @@
 
 ;; Git utility
 
-(global-set-key (kbd "C-m s") 'magit-status)
-(global-set-key (kbd "C-m b") 'magit-blame-popup)
-(global-set-key (kbd "C-m p") 'magit-dispatch-popup)
-(global-set-key (kbd "C-m f") 'magit-file-popup)
+(global-set-key (kbd "C-x g s") 'magit-status)
+(global-set-key (kbd "C-x g b") 'magit-blame-popup)
+(global-set-key (kbd "C-x g p") 'magit-dispatch-popup)
+(global-set-key (kbd "C-x g f") 'magit-file-popup)
 
 ;; Fix RET
 
