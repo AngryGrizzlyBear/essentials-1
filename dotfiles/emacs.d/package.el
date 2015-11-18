@@ -4,7 +4,7 @@
                          fill-column-indicator flycheck-clojure flycheck-haskell flycheck-rust
                          flycheck-pos-tip gitignore-mode haskell-mode helm helm-ag helm-projectile
                          js2-mode less-css-mode magit neotree paredit scss-mode powerline projectile
-                         rust-mode color-theme-solarized wrap-region)
+                         rust-mode color-theme-solarized wrap-region rainbow-delimiters)
   "Packages to make sure are installed")
 
 (defun my-packages-installed-p ()

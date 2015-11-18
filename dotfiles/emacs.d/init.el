@@ -79,20 +79,6 @@
 (load-file "~/.emacs.d/package.el")
 
 ;;--------------------------------------------------------------------------------------
-;; Theme
-;;--------------------------------------------------------------------------------------
-
-(set-frame-parameter nil 'background-mode 'dark)
-(set-terminal-parameter nil 'background-mode 'dark)
-(load-theme 'solarized t)
-
-;; 10 pt font
-(set-frame-font "inconsolata")
-(set-face-attribute 'default nil :height 100)
-
-(powerline-center-theme)
-
-;;--------------------------------------------------------------------------------------
 ;; Fill column indicator (currently set to 120 characters)
 ;;--------------------------------------------------------------------------------------
 
@@ -176,6 +162,14 @@
 (projectile-global-mode)
 
 ;;-------------------------------------------------------------------------------------
+;; Rainbow Delimiters (on most programming modes)
+;;-------------------------------------------------------------------------------------
+
+(require 'rainbow-delimiters)
+
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+;;-------------------------------------------------------------------------------------
 ;; Key Bindings
 ;;-------------------------------------------------------------------------------------
 
@@ -233,6 +227,20 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-s") 'helm-do-ag-this-file)
 
+;;--------------------------------------------------------------------------------------
+;; Theme
+;;--------------------------------------------------------------------------------------
+
+(set-frame-parameter nil 'background-mode 'dark)
+(set-terminal-parameter nil 'background-mode 'dark)
+(load-theme 'solarized t)
+
+;; 10 pt font
+(set-frame-font "inconsolata")
+(set-face-attribute 'default nil :height 100)
+
+(powerline-center-theme)
+
 ;;-------------------------------------------------------------------------------------
 
 (custom-set-variables
@@ -248,4 +256,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(font-lock-comment-delimiter-face ((t (:foreground "brightgreen" :slant italic)))))

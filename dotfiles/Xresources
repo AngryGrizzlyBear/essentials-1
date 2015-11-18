@@ -140,7 +140,7 @@ URxvt*font: xft:Inconsolata:size=8:antialias=true:hinting=true
 URxvt*boldFont: xft:Inconsolata:bold
 URxvt.letterSpace: -1
 
-URxvt*termName: rxvt-unicode
+URxvt*termName: rxvt
 
 URxvt.urgentOnBell: true
 ! URxvt*foreground:                     color
