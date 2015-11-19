@@ -6,7 +6,8 @@
 ;;   - For stuff that requires privacy (such as ERC, Circe, or Email) place them in
 ;;     a .private.el file in your home directory. This script will load that file.
 ;;     This is the best way I could think of protecting sensitive data without making
-;;     it incredibly inconvenient for you.
+;;     it incredibly inconvenient for you. Take a look at the sample private.el in
+;;     the emacs.d folder (currently a work in progress).
 ;;
 ;;--------------------------------------------------------------------------------------
 
@@ -97,6 +98,29 @@
 (when (file-exists-p "~/.private.el")
   (load-file "~/.private.el")
 )
+
+;;--------------------------------------------------------------------------------------
+;; Configure Circe
+;;--------------------------------------------------------------------------------------
+
+(setq circe-network-options 'irc-servers)
+(setq circe-use-cycle-completion t)
+(setq helm-mode-no-completion-in-region-in-modes
+      '(circe-channel-mode
+        circe-query-mode
+        circe-server-mode
+       )
+)
+
+(setq circe-reduce-lurker-spam t)
+(setq circe-set-display-handler "JOIN" (lambda (&rest ignored) nil)) ;; Hide JOIN spam
+
+(add-hook 'circe-chat-mode-hook 'my-circe-prompt)
+(defun my-circe-prompt ()
+  (lui-set-prompt
+   (concat (propertize (concat (buffer-name) ">")
+                       'face 'circe-prompt-face)
+           " ")))
 
 ;;--------------------------------------------------------------------------------------
 ;; Enable ParEdit for Emacs lisp modes

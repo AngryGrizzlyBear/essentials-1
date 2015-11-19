@@ -2,7 +2,7 @@
 export ZSH=~/.oh-my-zsh
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export VISUAL=vim
+export VISUAL="emacs -nw"
 export EDITOR="$VISUAL"
 export ITERM_24BIT=1
 export TERM=xterm-256color
@@ -67,7 +67,7 @@ PROMPT="%{$fg[white]%}┌%{$reset_color%}[%{$fg[yellow]%}%n%{$reset_color%}@%{$f
 
 # NOTE: 'Whence' is the ZSH idiom for bash's 'type'
 export PRENPMPATH=$PATH
-if [ -n "$(whence -f npm)" ]; 
+if [ -n "$(whence -f npm)" ];
 then
   NPMPATH="$(npm bin)"
 

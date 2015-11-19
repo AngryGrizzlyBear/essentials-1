@@ -1,6 +1,6 @@
 (require 'cl)
 
-(defvar my-packages '(ag auto-complete clojure-mode coffee-mode css-mode framemove flycheck
+(defvar my-packages '(ag auto-complete clojure-mode coffee-mode css-mode circe framemove flycheck
                          fill-column-indicator flycheck-clojure flycheck-haskell flycheck-rust
                          flycheck-pos-tip gitignore-mode haskell-mode helm helm-ag helm-projectile
                          js2-mode less-css-mode magit neotree paredit scss-mode powerline projectile
