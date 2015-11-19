@@ -113,7 +113,7 @@
 )
 
 (setq circe-reduce-lurker-spam t)
-(setq circe-set-display-handler "JOIN" (lambda (&rest ignored) nil)) ;; Hide JOIN spam
+(circe-set-display-handler "JOIN" (lambda (&rest ignored) nil)) ;; Hide JOIN spam
 
 (add-hook 'circe-chat-mode-hook 'my-circe-prompt)
 (defun my-circe-prompt ()
