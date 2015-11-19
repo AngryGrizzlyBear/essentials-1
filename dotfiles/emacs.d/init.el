@@ -95,15 +95,20 @@
 ;; Load private file
 ;;--------------------------------------------------------------------------------------
 
-(when (file-exists-p "~/.private.el")
+(if (file-exists-p "~/.private.el")
   (load-file "~/.private.el")
+  (setq irc-servers nil
+        irc-username nil
+        irc-password nil
+        default-realname nil
+  )
 )
 
 ;;--------------------------------------------------------------------------------------
 ;; Configure Circe
 ;;--------------------------------------------------------------------------------------
 
-(setq circe-network-options 'irc-servers)
+(setq circe-network-options irc-servers)
 (setq circe-use-cycle-completion t)
 (setq helm-mode-no-completion-in-region-in-modes
       '(circe-channel-mode
@@ -113,7 +118,7 @@
 )
 
 (setq circe-reduce-lurker-spam t)
-(circe-set-display-handler "JOIN" (lambda (&rest ignored) nil)) ;; Hide JOIN spam
+;; (circe-set-display-handler "JOIN" (lambda (&rest ignored) nil)) ;; Hide JOIN spam
 
 (add-hook 'circe-chat-mode-hook 'my-circe-prompt)
 (defun my-circe-prompt ()

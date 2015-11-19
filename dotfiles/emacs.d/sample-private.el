@@ -8,22 +8,22 @@
 
 
 ;; Circe Configuration
-(defvar irc-username "")
-(defvar irc-password "")
-
 (defvar irc-servers '(
    (
      "Freenode"
      :nick "Your nick"
+     :host "ircserver.whatever.com"
      :channels ("channel1" "channel2")
-     :nickserv-password irc-password
      :port port
-     :tls t
+     :realname "Your name"
+     :use-tls t
+     :nickserv-nick "auth nick"
+     :nickserv-password "auth password"
    )
   )
 )
 
-(defvar default-real-name "Real Name")
+
 
 ;; Email Configuration
 
