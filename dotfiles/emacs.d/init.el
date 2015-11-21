@@ -49,7 +49,60 @@
 (global-auto-revert-mode t)
 
 ;;--------------------------------------------------------------------------------------
-;; Handy editor stuff
+;; IBuffer configurations (C-x C-b)
+;;--------------------------------------------------------------------------------------
+
+;; Filter Groups - ***** Circe filtering currently doesnt work *****
+
+(setq ibuffer-saved-filter-groups
+      '(("default"
+         ("Emacs Configuration" (or (filename . ".emacs.d")
+                                    (filename . "init.el")
+                                    (filename . "package.el")
+                                    (filename . "private.el")
+                                    (filename . "emacs.d")))
+         ("Org" (or (mode . org-mode)
+                    (filename . "OrgMode")))
+         ("Magit" (name . "\*magit"))
+         ("IRC" (or (mode . "Circe*")
+                    (mode . erc-mode)))
+         ("Help" (or (name . "\*Help\*")
+                     (name . "\*Apropos\*")
+                     (name . "\*info\*")))
+         ("Dired" (mode . dired-mode))
+         ;; Dev has groups for all languages you program in
+         ("Dev" (or  (mode . haskell-mode)
+                     (mode . coffee-mode)
+                     (mode . js2-mode)
+                     (mode . clojure-mode)
+                     (mode . cc-mode)
+                     (mode . scheme-mode)
+                     (mode . lisp-mode))
+          )
+         ("Emacs" (or (name . "^\\*scratch\\*$")
+                      (name . "^\\*Messages\\*$")))
+         ("Gnus" (or (mode . message-mode)
+                     (mode . bbdb-mode)
+                     (mode . mail-mode)
+                     (mode . gnus-group-mode)
+                     (mode . gnus-summary-mode)
+                     (mode . gnus-article-mode)
+                     (name . "^\\.bbdb$")
+                     (name . "^\\.newsrc-dribble")))
+ 	 )))
+
+;; Automatically keep buffers up to date and load the filter
+(add-hook 'ibuffer-mode-hook
+	  '(lambda ()
+	     (ibuffer-auto-mode 1)
+	     (ibuffer-switch-to-saved-filter-groups "default")))
+
+(setq ibuffer-expert t)
+
+(setq ibuffer-show-empty-filter-groups nil)
+
+;;--------------------------------------------------------------------------------------
+;; handy editor stuff
 ;;--------------------------------------------------------------------------------------
 
 (defun delete-trailing-blank-lines ()
@@ -72,6 +125,9 @@
 
 ;; Uncomment this if you dont mind git diffs complaining about missing ending newlines.
 ; (add-hook 'before-save-hook 'delete-trailing-blank-lines)
+
+;; Add new line if using C-n navigates to the end of the buffer
+(setq next-line-add-newlines t)
 
 ;;--------------------------------------------------------------------------------------
 ;; Enable MELPA
@@ -255,6 +311,8 @@
 ;; Unbind C-s from Isearch to make room for helm-ag
 (global-set-key (kbd "C-s") nil)
 
+(global-set-key (kbd "C-x C-b") nil)
+
 ;; Neotree binds are prefixed by C-t
 
 (global-set-key (kbd "C-t t") 'neotree-toggle)
@@ -294,6 +352,9 @@
 (global-set-key (kbd "C-c p f") 'helm-projectile-find-file)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-s") 'helm-do-ag-this-file)
+
+;; IBuffer
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;;--------------------------------------------------------------------------------------
 ;; Theme
