@@ -122,10 +122,10 @@ URxvt.tabbed.title: no
 ! URxvt.keysym.C-Down:   perl:font-size:decrease
 ! URxvt.keysym.C-S-Up:   perl:font-size:incglobal
 ! URxvt.keysym.C-S-Down: perl:font-size:decglobal
-URxvt.keysym.Control-Up:       \033[1;5A
-URxvt.keysym.Control-Down:     \033[1;5B
-URxvt.keysym.Control-Left:     \033[1;5D
-URxvt.keysym.Control-Right:    \033[1;5C
+! URxvt.keysym.Control-Up:       \033[1;5A
+! URxvt.keysym.Control-Down:     \033[1;5B
+! URxvt.keysym.Control-Left:     \033[1;5D
+! URxvt.keysym.Control-Right:    \033[1;5C
 
 Xft.dpi: 96
 Xft.antialias: 1
@@ -141,6 +141,7 @@ URxvt*boldFont: xft:Inconsolata:bold
 URxvt.letterSpace: -1
 
 URxvt*termName: rxvt
+URxvt*iso14755_52: False
 URxvt*iso14755: False
 URxvt.urgentOnBell: true
 ! URxvt*foreground:                     color
