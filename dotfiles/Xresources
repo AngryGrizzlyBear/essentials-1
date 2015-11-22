@@ -141,8 +141,8 @@ URxvt*boldFont: xft:Inconsolata:bold
 URxvt.letterSpace: -1
 
 URxvt*termName: rxvt
-URxvt*iso14755_52: False
-URxvt*iso14755: False
+URxvt.iso14755: False
+URxvt.iso14755_52: False
 URxvt.urgentOnBell: true
 ! URxvt*foreground:                     color
 ! URxvt*color0:                         color
