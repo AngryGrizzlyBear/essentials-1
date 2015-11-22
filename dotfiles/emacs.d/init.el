@@ -42,6 +42,20 @@
 (setq inhibit-splash-screen t)
 
 ;;--------------------------------------------------------------------------------------
+;; Conditionally load urxvt files to fix weird bindings
+;;--------------------------------------------------------------------------------------
+
+;; This code doesn't fix anything related to emacs -nw not allowing C-) in terminal
+;; mode. Currently looking for solutions so I don't have to keep using C-<left>
+;; and C-<right>
+;;
+;; (when (string= (getenv "TERM") "rxvt")
+;;   (load "term/rxvt")
+;;   (terminal-init-rxvt)
+;;   (load "~/.emacs.d/urxvt-bindings.el")
+;;   )
+
+;;--------------------------------------------------------------------------------------
 ;; Enable auto-refresh to keep buffers up to date when git or another program
 ;; modifies them
 ;;--------------------------------------------------------------------------------------
