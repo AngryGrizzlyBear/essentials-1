@@ -11,11 +11,13 @@ export TERM=rxvt-256color
 # so I need to export rxvt-256color and copy the rxvt-256color terminfo
 # to the right location (see package installer for details).
 # This will need to be changed if you use a different terminal emulator.
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  export TERM=rxvt-256color
-else
-  export TERM=xterm-256color
-fi
+#
+# Currently disabled to test automatic terminal detection
+#if [[ "$OSTYPE" == "linux-gnu" ]]; then
+#  export TERM=rxvt-256color
+#else
+#  export TERM=xterm-256color
+#fi
 
 alias emacs='emacs -nw'
 alias irssi='TERM=screen-256color irssi'
