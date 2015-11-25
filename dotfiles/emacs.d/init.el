@@ -285,6 +285,12 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 
+;; Make sure the tab key only indents (rather than also doing completion)
+(setq tab-always-indent t)
+
+;; Make return key also indent
+(electric-indent-mode 1)
+
 ;;-------------------------------------------------------------------------------------
 ;; Flycheck
 ;;-------------------------------------------------------------------------------------
@@ -308,6 +314,13 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;;-------------------------------------------------------------------------------------
+;; Neotree Configuration
+;;-------------------------------------------------------------------------------------
+
+(setq neo-theme 'nerd)
+(setq neo-vc-integration '(char))
+
+;;-------------------------------------------------------------------------------------
 ;; Key Bindings
 ;;-------------------------------------------------------------------------------------
 
@@ -323,7 +336,7 @@
 (global-set-key (kbd "C-c p f") nil)
 
 ;; Unbind C-s from Isearch to make room for helm-ag
-(global-set-key (kbd "C-s") nil)
+;(global-set-key (kbd "C-s") nil)
 
 (global-set-key (kbd "C-x C-b") nil)
 
@@ -365,7 +378,7 @@
 
 (global-set-key (kbd "C-c p f") 'helm-projectile-find-file)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-s") 'helm-do-ag-this-file)
+;(global-set-key (kbd "C-s") 'helm-do-ag-this-file)
 
 ;; IBuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
