@@ -216,7 +216,6 @@
 
 (require 'fill-column-indicator)
 
-(setq fci-rule-width 1)
 (setq fci-rule-color "black")
 (setq fci-rule-column 120)
 (add-hook 'after-change-major-mode-hook 'fci-mode)
@@ -304,14 +303,6 @@
 ;;-------------------------------------------------------------------------------------
 
 (projectile-global-mode)
-
-;;-------------------------------------------------------------------------------------
-;; Rainbow Delimiters (on most programming modes)
-;;-------------------------------------------------------------------------------------
-
-(require 'rainbow-delimiters)
-
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;;-------------------------------------------------------------------------------------
 ;; Neotree Configuration
