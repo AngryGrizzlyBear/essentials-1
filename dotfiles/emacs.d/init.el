@@ -14,6 +14,14 @@
 (require 'package)
 
 ;;--------------------------------------------------------------------------------------
+;; Generic line numbering disabler
+;;--------------------------------------------------------------------------------------
+
+(defun nolinum ()
+  (linum-mode 0)
+)
+
+;;--------------------------------------------------------------------------------------
 ;; Hide Startup Message
 ;;--------------------------------------------------------------------------------------
 
@@ -110,6 +118,9 @@
 	  '(lambda ()
 	     (ibuffer-auto-mode 1)
 	     (ibuffer-switch-to-saved-filter-groups "default")))
+
+;; Disable eager line numbering
+(add-hook 'ibuffer-mode-hook 'nolinum)
 
 (setq ibuffer-expert t)
 
@@ -276,6 +287,56 @@
           (lambda ()
             (if (string-match "\\.zsh$" buffer-file-name)
                                 (sh-set-shell "zsh"))))
+
+;;-------------------------------------------------------------------------------------
+;; EShell Configuration
+;;-------------------------------------------------------------------------------------
+
+;; Enable ANSI colors in EShell
+(ansi-color-for-comint-mode-on)
+(defun eshell-handle-ansi-color ()
+  (ansi-color-apply-on-region eshell-last-output-start eshell-last-output-end)
+)
+
+(add-hook 'eshell-mode-hook
+          '(lambda ()
+             (add-to-list
+              'eshell-output-filter-functions
+              'eshell-handle-ansi-color))
+)
+
+;; Disable line numbers for EShell
+(add-hook 'eshell-mode-hook 'nolinum)
+
+;;Save EShell history on exit
+(setq eshell-save-history-on-exit t)
+
+;; History size
+(setq eshell-history-size 1024)
+
+;; Emulate Bash history save
+(setq eshell-hist-ignoreups t)
+
+;; Ignore dupes in history
+(setq eshell-hist-ignoredups t)
+
+;; Scroll to bottom on output
+(setq eshell-scroll-to-bottom-on-output t)
+
+;;; Below this section I'm defining convenience commands for EShell so it acts
+;;; a little more like a terminal you might be used to.
+
+;; Define the clear function
+(defun eshell/clear ()
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer))
+)
+
+;; Info
+(defun eshell/info ()
+  (info)
+)
 
 ;;-------------------------------------------------------------------------------------
 ;; Alignment

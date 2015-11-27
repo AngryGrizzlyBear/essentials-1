@@ -1,0 +1,15 @@
+ifconfig
+cls
+$TERM
+scheme
+ls
+scheme
+ping google.com
+git diff
+export TERM=rxvt-256color
+find
+npm
+clear
+ls
+npm
+clear
