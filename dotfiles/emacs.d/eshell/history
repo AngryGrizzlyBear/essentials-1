@@ -8,8 +8,14 @@ ping google.com
 git diff
 export TERM=rxvt-256color
 find
-npm
-clear
 ls
-npm
 clear
+echo $LANG
+echo $LC_ALL 
+npm
+echo "\[30m"
+echo "\e[30m"
+echo "\e[91m"
+echo -en "\e[91m"
+echo -en "\\e[91m"
+scheme

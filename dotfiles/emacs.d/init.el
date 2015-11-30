@@ -1,4 +1,4 @@
-;;--------------------------------------------------------------------------------------
+ ;;--------------------------------------------------------------------------------------
 ;;
 ;;  Emacs Configuration file
 ;;
@@ -48,6 +48,19 @@
 
 (defvar inhibit-splash-screen)
 (setq inhibit-splash-screen t)
+
+;;--------------------------------------------------------------------------------------
+;; Prefer UTF-8 for buffers
+;;--------------------------------------------------------------------------------------
+
+;; (prefer-coding-system 'utf-8)
+;; (set-terminal-coding-system 'utf-8)
+
+(defun set-buffer-utf8 ()
+  (set-buffer-process-coding-system 'iso-8859-8 'iso-8859-8)
+)
+
+(add-hook 'eshell-mode-hook 'set-buffer-utf8)
 
 ;;--------------------------------------------------------------------------------------
 ;; Conditionally load urxvt files to fix weird bindings
@@ -337,6 +350,9 @@
 (defun eshell/info ()
   (info)
 )
+
+;; Correct the path
+(setenv "PATH" (concat "/usr/local/bin:/usr/local/sbin:" (getenv "PATH")))
 
 ;;-------------------------------------------------------------------------------------
 ;; Alignment
