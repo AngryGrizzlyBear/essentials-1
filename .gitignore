@@ -13,6 +13,7 @@ tramp
 *_flymake.*
 */eshell/history
 */eshell/lastdir
+*/emacs.d/eshell/*
 *.rel
 /auto/
 .cask/
