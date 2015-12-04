@@ -1,4 +1,4 @@
- ;;--------------------------------------------------------------------------------------
+;;--------------------------------------------------------------------------------------
 ;;
 ;;  Emacs Configuration file
 ;;
@@ -111,6 +111,7 @@
                      (mode . js2-mode)
                      (mode . clojure-mode)
                      (mode . cc-mode)
+                     (mode . stylus-mode)
                      (mode . scheme-mode)
                      (mode . lisp-mode))
           )
@@ -244,14 +245,16 @@
 (setq fci-rule-column 120)
 (add-hook 'after-change-major-mode-hook 'fci-mode)
 
-;;--------------------------------------------------------------------------------------
+;;---------------------- ---------------------------------------------------------------
 ;; Line Numbering - Note: Might not look good with files with 10,000 or more lines
 ;;--------------------------------------------------------------------------------------
 
 (global-linum-mode t)
 
 (defvar linum-format)
-(setq linum-format "%4d \u2502 ")
+(setq linum-format "%4d  \u2502")
+
+;; TODO: Figure out a way to make linum-relative keep the same linum-mode styles
 
 ;;--------------------------------------------------------------------------------------
 ;; Hook framemove into windmove for seamless window to frame transitions
@@ -408,6 +411,8 @@
 
 (global-set-key (kbd "C-x C-b") nil)
 
+(global-set-key (kbd "C-c r") nil)
+
 ;; Neotree binds are prefixed by C-t
 
 (global-set-key (kbd "C-t t") 'neotree-toggle)
@@ -449,7 +454,11 @@
 ;(global-set-key (kbd "C-s") 'helm-do-ag-this-file)
 
 ;; IBuffer
+
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; Relative line numbering
+(global-set-key (kbd "C-c r") 'linum-relative-toggle)
 
 ;;--------------------------------------------------------------------------------------
 ;; Theme
