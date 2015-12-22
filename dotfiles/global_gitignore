@@ -30,3 +30,8 @@ tramp
 
 # cask packages
 .cask/
+
+# Smex related files and folders
+/smex-items
+/.smex-items
+/smex-save-file
