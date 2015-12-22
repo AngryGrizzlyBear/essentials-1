@@ -53,11 +53,11 @@
 ;; Prefer UTF-8 for buffers
 ;;--------------------------------------------------------------------------------------
 
-;; (prefer-coding-system 'utf-8)
-;; (set-terminal-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
 
 (defun set-buffer-utf8 ()
-  (set-buffer-process-coding-system 'iso-8859-8 'iso-8859-8)
+  (set-buffer-process-coding-system 'utf-8 'utf-8)
 )
 
 (add-hook 'eshell-mode-hook 'set-buffer-utf8)
@@ -180,6 +180,10 @@
 
 (package-initialize)
 
+;; This will force any out of date packages to update automatically
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
 ;;--------------------------------------------------------------------------------------
 ;; Install and load Packages
 ;;--------------------------------------------------------------------------------------
@@ -269,20 +273,15 @@
 (show-paren-mode 1)
 
 ;;--------------------------------------------------------------------------------------
-;; Helm Configuration
+;; Ivy Configuration
 ;;--------------------------------------------------------------------------------------
 
-(helm-mode t)
-(helm-adaptive-mode t) ;; Sort results by most frequently used
+(ivy-mode 1)
 
-(require 'helm-projectile)
-(helm-projectile-on)
+(setq projectile-completion-system 'ivy)
+(setq magit-complete-read-function 'ivy-completing-read)
+(setq ivy-use-virtual-buffers t)
 
-;; Use ag instead of grep for in-file searches in helm-find-file
-
-(when (executable-find "ag")
-  (setq helm-grep-default-command "ag -H --nogroup --nocolor %e %p %f"
-        helm-grep-default-recurse-command "ag -H --nogroup --nocolor %e %p %f"))
 
 ;;-------------------------------------------------------------------------------------
 ;; Enable Autocomplete
@@ -354,6 +353,24 @@
   (info)
 )
 
+;; Remove strange characters that don't seem to correspond to anything
+(defvar ansi-escape-re
+  (rx (or ?\233 (and ?\e ?\[))
+      (zero-or-more (char (?0 . ?\?)))
+      (zero-or-more (char ?\s ?- ?\/))
+      (char (?@ . ?~))))
+
+(defun nuke-ansi-escapes (beg end)
+  (save-excursion
+    (goto-char beg)
+    (while (re-search-forward ansi-escape-re end t)
+      (replace-match ""))))
+
+(defun eshell-nuke-ansi-escapes ()
+  (nuke-ansi-escapes eshell-last-output-start eshell-last-output-end))
+
+(add-hook 'eshell-output-filter-functions 'eshell-nuke-ansi-escapes t)
+
 ;; Correct the path
 (setenv "PATH" (concat "/usr/local/bin:/usr/local/sbin:" (getenv "PATH")))
 
@@ -388,15 +405,17 @@
 ;; Neotree Configuration
 ;;-------------------------------------------------------------------------------------
 
-(setq neo-theme 'nerd)
+(setq neo-theme 'ascii)
 (setq neo-vc-integration '(char))
+(setq neo-persist-show t)
+
+(add-hook 'neo-enter-hook 'redraw-display)
 
 ;;-------------------------------------------------------------------------------------
 ;; Key Bindings
 ;;-------------------------------------------------------------------------------------
 
 ;; Unbind C-t from transpose
-
 (global-set-key (kbd "C-t") nil)
 
 (global-set-key (kbd "C-d") nil)
@@ -406,15 +425,16 @@
 ;; Unbind C-c p f from projectile
 (global-set-key (kbd "C-c p f") nil)
 
-;; Unbind C-s from Isearch to make room for helm-ag
-;(global-set-key (kbd "C-s") nil)
+;; Unbind C-s from Isearch to make room for swiper
+(global-set-key (kbd "C-s") nil)
 
 (global-set-key (kbd "C-x C-b") nil)
+
+(global-set-key (kbd "C-x C-f") nil)
 
 (global-set-key (kbd "C-c r") nil)
 
 ;; Neotree binds are prefixed by C-t
-
 (global-set-key (kbd "C-t t") 'neotree-toggle)
 (global-set-key (kbd "C-t n") 'neotree-create-node)
 (global-set-key (kbd "C-t d") 'neotree-delete-node)
@@ -422,39 +442,41 @@
 (global-set-key (kbd "C-t h") 'neotree-hidden-file-toggle)
 
 ;; Pane navigation
-
 (global-set-key (kbd "M-h") 'windmove-left)
 (global-set-key (kbd "M-j") 'windmove-down)
 (global-set-key (kbd "M-k") 'windmove-up)
 (global-set-key (kbd "M-l") 'windmove-right)
 
 ;; Delete surrounding
-
 (global-set-key (kbd "C-d s") 'delete-pair)
 
 ;; Kill whole line
-
 (global-set-key (kbd "C-d d") 'kill-whole-line)
 
 ;; Git utility
-
 (global-set-key (kbd "C-x g s") 'magit-status)
 (global-set-key (kbd "C-x g b") 'magit-blame-popup)
 (global-set-key (kbd "C-x g p") 'magit-dispatch-popup)
 (global-set-key (kbd "C-x g f") 'magit-file-popup)
 
 ;; Fix RET
-
 (global-set-key (kbd "RET") 'electric-newline-and-maybe-indent)
 
 ;; Helm
-
-(global-set-key (kbd "C-c p f") 'helm-projectile-find-file)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
+;(global-set-key (kbd "C-c p f") 'helm-projectile-find-file)
+;(global-set-key (kbd "C-x C-f") 'helm-find-files)
 ;(global-set-key (kbd "C-s") 'helm-do-ag-this-file)
 
-;; IBuffer
+;; Swiper
+(global-set-key (kbd "C-s") 'swiper)
 
+;; Ivy find file
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+
+;; Better M-x
+;;(global-set-key (kbd "M-x") 'counsel-M-x)
+
+;; IBuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; Relative line numbering
