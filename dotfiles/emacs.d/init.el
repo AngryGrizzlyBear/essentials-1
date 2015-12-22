@@ -22,6 +22,12 @@
 )
 
 ;;--------------------------------------------------------------------------------------
+;; Hide menu bar (Opens up frame real estate in console mode)
+;;--------------------------------------------------------------------------------------
+
+(menu-bar-mode -1)
+
+;;--------------------------------------------------------------------------------------
 ;; Hide Startup Message
 ;;--------------------------------------------------------------------------------------
 
@@ -256,9 +262,18 @@
 
 (setq fci-rule-color "black")
 (setq fci-rule-column 120)
-(add-hook 'after-change-major-mode-hook 'fci-mode)
+(setq fci-rule-width 1)
+(setq fci-rule-character ?\u2503) ; Solid line unicode character
 
-;;---------------------- ---------------------------------------------------------------
+;; A hack to work around FCI wanting to put itself everywhere
+(define-globalized-minor-mode global-fci-mode fci-mode
+  (lambda ()
+    (unless buffer-read-only
+      (fci-mode t))))
+
+(global-fci-mode t)
+
+;;--------------------------------------------------------------------------------------
 ;; Line Numbering - Note: Might not look good with files with 10,000 or more lines
 ;;--------------------------------------------------------------------------------------
 
