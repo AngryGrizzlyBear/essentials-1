@@ -22,3 +22,6 @@ elpa/
 projectile-bookmarks.eld
 *.dat
 helm-adaptive-history
+/smex-items
+/.smex-items
+/smex-save-file

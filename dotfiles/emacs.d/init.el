@@ -274,6 +274,13 @@
 (global-fci-mode t)
 
 ;;--------------------------------------------------------------------------------------
+;; Expand region settings
+;;--------------------------------------------------------------------------------------
+
+(require 'expand-region)
+(pending-delete-mode t) ; Selected region contents are replaced on typing
+
+;;--------------------------------------------------------------------------------------
 ;; Line Numbering - Note: Might not look good with files with 10,000 or more lines
 ;;--------------------------------------------------------------------------------------
 
@@ -510,6 +517,9 @@
 
 ;; Relative line numbering
 (global-set-key (kbd "C-c r") 'linum-relative-toggle)
+
+;; Expand region
+(global-set-key (kbd "C-@") 'er/expand-region)
 
 ;;--------------------------------------------------------------------------------------
 ;; Theme
