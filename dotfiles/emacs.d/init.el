@@ -277,7 +277,7 @@
 ;; Line Numbering - Note: Might not look good with files with 10,000 or more lines
 ;;--------------------------------------------------------------------------------------
 
-(global-linum-mode t)
+;; NOTE: Line numbers are toggled with C-s n
 
 (defvar linum-format)
 (setq linum-format "%4d  \u2502")
@@ -458,6 +458,8 @@
 
 (global-set-key (kbd "C-c r") nil)
 
+(global-set-key (kbd "C-c n") nil)
+
 ;; Neotree binds are prefixed by C-t
 (global-set-key (kbd "C-t t") 'neotree-toggle)
 (global-set-key (kbd "C-t n") 'neotree-create-node)
@@ -502,6 +504,9 @@
 
 ;; IBuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; Line number toggle
+(global-set-key (kbd "C-c n") 'linum-mode)
 
 ;; Relative line numbering
 (global-set-key (kbd "C-c r") 'linum-relative-toggle)
