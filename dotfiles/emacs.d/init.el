@@ -467,6 +467,8 @@
 
 (global-set-key (kbd "C-c n") nil)
 
+(global-set-key (kbd "C-h C-k") nil)
+
 ;; Neotree binds are prefixed by C-t
 (global-set-key (kbd "C-t t") 'neotree-toggle)
 (global-set-key (kbd "C-t n") 'neotree-create-node)
@@ -519,7 +521,7 @@
 (global-set-key (kbd "C-c r") 'linum-relative-toggle)
 
 ;; Expand region
-(global-set-key (kbd "C-@") 'er/expand-region)
+(global-set-key (kbd "C-h C-k") 'er/expand-region)
 
 ;;--------------------------------------------------------------------------------------
 ;; Theme
