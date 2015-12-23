@@ -35,3 +35,6 @@ tramp
 /smex-items
 /.smex-items
 /smex-save-file
+
+# Notes file I tend to leave in projects
+project-notes.org
