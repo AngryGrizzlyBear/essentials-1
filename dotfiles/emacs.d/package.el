@@ -1,8 +1,9 @@
 (require 'cl)
 
 (defvar my-packages '(ag auto-complete clojure-mode coffee-mode css-mode circe expand-region framemove flycheck
-                         esh-help fill-column-indicator flycheck-clojure flycheck-haskell flycheck-rust
-                         flycheck-pos-tip gitignore-mode golden-ratio haskell-mode swiper linum-relative
+                         esh-help enh-ruby-mode flymake-ruby ruby-block robe inf-ruby ac-inf-ruby rspec-mode
+                         fill-column-indicator flycheck-clojure flycheck-haskell flycheck-rust slim-mode
+                         flycheck-pos-tip gitignore-mode golden-ratio haskell-mode swiper sass-mode linum-relative
                          js2-mode less-css-mode magit neotree paredit scala-mode2 scss-mode smex powerline
                          projectile rust-mode color-theme-solarized wrap-region stylus-mode rainbow-delimiters)
   "Packages to make sure are installed")

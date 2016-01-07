@@ -22,6 +22,8 @@ export TERM=rxvt-256color
 alias emacs='emacs -nw'
 alias irssi='TERM=screen-256color irssi'
 alias scheme='rlwrap mit-scheme'
+alias startpg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias stoppg='pg_ctl -D /usr/local/var/postgres stop'
 
 # This is for the mac GUI version of emacs.
 alias emacs-gui='open -a /Applications/Emacs.app $1'
