@@ -56,7 +56,7 @@ plugins=(git brew npm coffee)
 
 # User configuration
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin:/usr/lib/rstudio/bin" # Add RVM to PATH for scripting
 . ~/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
 # Haskell stuff
