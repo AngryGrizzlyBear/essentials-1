@@ -5,7 +5,8 @@
                          fill-column-indicator flycheck-clojure flycheck-haskell flycheck-rust slim-mode feature-mode
                          flycheck-pos-tip gitignore-mode golden-ratio haskell-mode swiper sass-mode linum-relative
                          js2-mode less-css-mode magit neotree paredit scala-mode2 scss-mode smex powerline toml-mode
-                         projectile rust-mode color-theme-solarized wrap-region stylus-mode rainbow-delimiters)
+                         projectile rust-mode color-theme-solarized wrap-region stylus-mode rainbow-delimiters
+                         livescript-mode jade-mode)
   "Packages to make sure are installed")
 
 (defun my-packages-installed-p ()
