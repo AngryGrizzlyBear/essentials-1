@@ -323,9 +323,16 @@
 
 (ivy-mode 1)
 
-(setq projectile-completion-system 'ivy)
+;(setq projectile-completion-system 'ivy)
 (setq magit-complete-read-function 'ivy-completing-read)
 (setq ivy-use-virtual-buffers t)
+
+
+;;-------------------------------------------------------------------------------------
+;; Use Grizzl with Projectile
+;;-------------------------------------------------------------------------------------
+
+(setq projectile-completion-system 'grizzl)
 
 
 ;;-------------------------------------------------------------------------------------
@@ -468,7 +475,7 @@
 (global-set-key (kbd "RET") nil)
 
 ;; Unbind C-c p f from projectile
-(global-set-key (kbd "C-c p f") nil)
+;(global-set-key (kbd "C-c p f") nil)
 
 ;; Unbind C-s from Isearch to make room for swiper
 (global-set-key (kbd "C-s") nil)
