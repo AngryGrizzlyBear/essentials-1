@@ -69,6 +69,18 @@
 (add-hook 'eshell-mode-hook 'set-buffer-utf8)
 
 ;;--------------------------------------------------------------------------------------
+;; Enable Org-mode and set agenda files
+;;--------------------------------------------------------------------------------------
+
+(require 'org)
+
+;; Stuff all of the org files you want under ~/org and they will be loaded automatically
+;; and have their TODO items accessible by typing C-c a t
+(setq org-agenda-files '("~/org"))
+(
+setq org-log-done t)
+
+;;--------------------------------------------------------------------------------------
 ;; Prefer unix style line endings
 ;;--------------------------------------------------------------------------------------
 
@@ -543,6 +555,10 @@
 
 ;; Expand region
 (global-set-key (kbd "C-h C-k") 'er/expand-region)
+
+;; Org mode specific keybinds
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
 
 ;;--------------------------------------------------------------------------------------
 ;; Theme
