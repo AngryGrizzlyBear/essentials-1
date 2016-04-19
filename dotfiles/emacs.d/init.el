@@ -476,6 +476,24 @@ setq org-log-done t)
 (add-hook 'neo-enter-hook 'redraw-display)
 
 ;;-------------------------------------------------------------------------------------
+;; 2 Space Region Indenting Functions
+;;-------------------------------------------------------------------------------------
+
+(defun my-indent-region (N)
+  (interactive "p")
+  (if (use-region-p)
+      (progn (indent-rigidly (region-beginning) (region-end) (* N 2))
+             (setq deactivate-mark nil))
+    (self-insert-command N)))
+
+(defun my-unindent-region (N)
+  (interactive "p")
+  (if (use-region-p)
+      (progn (indent-rigidly (region-beginning) (region-end) (* N -2))
+             (setq deactivate-mark nil))
+    (self-insert-command N)))
+
+;;-------------------------------------------------------------------------------------
 ;; Key Bindings
 ;;-------------------------------------------------------------------------------------
 
@@ -559,6 +577,10 @@ setq org-log-done t)
 ;; Org mode specific keybinds
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
+
+;; More convenient region indenting
+(global-set-key (kbd "M->") 'my-indent-region)
+(global-set-key (kbd "M-<") 'my-unindent-region)
 
 ;;--------------------------------------------------------------------------------------
 ;; Theme
