@@ -131,9 +131,6 @@ let g:rust_recommended_style=0
 " Note noremap is a normal mode non-recursive mapping
 " nnoremap and nmap make the bind only work in normal mode
 
-"map C-l to clear last search
-:noremap <silent> <c-l> :nohls<cr><c-l>
-
 let mapleader=" "
 map <silent> <Leader>t :NERDTreeToggle<CR>
 nnoremap <silent> <Leader>r :call NumberToggle()<CR>
@@ -141,9 +138,8 @@ nnoremap <silent> <Leader>r :call NumberToggle()<CR>
 " This one maps F5 to delete all trailing whitespace
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-" Pressing enter in command mode clears the current search highlighting until
-" the next search.
-nnoremap <silent> <CR> :noh<CR><CR>
+"Bind C-l to clear last search
+:noremap <silent> <c-l> :nohls<cr><c-l>
 
 " ctrlp hotkeys
 let g:ctrlp_map='<c-p>'
