@@ -131,6 +131,9 @@ let g:rust_recommended_style=0
 " Note noremap is a normal mode non-recursive mapping
 " nnoremap and nmap make the bind only work in normal mode
 
+"map C-l to clear last search
+:noremap <silent> <c-l> :nohls<cr><c-l>
+
 let mapleader=" "
 map <silent> <Leader>t :NERDTreeToggle<CR>
 nnoremap <silent> <Leader>r :call NumberToggle()<CR>
