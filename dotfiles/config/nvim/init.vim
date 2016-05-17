@@ -163,6 +163,12 @@ endif
 " Color customizations
 " let g:indentLine_color_term=###
 
+" Fugitive bindings
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gc :Gcommit<CR>
+
 " Line indent guides are defaulted to off
 let g:indentLine_enabled=0
 
