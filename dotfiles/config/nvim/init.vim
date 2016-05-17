@@ -43,6 +43,13 @@ Plug 'derekwyatt/vim-scala'
 Plug 'kchmck/vim-coffee-script'
 Plug 'rust-lang/rust.vim'
 Plug 'klen/python-mode'
+Plug 'groenewege/vim-less'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
+" Org Mode
+Plug 'jceb/vim-orgmode'
 
 if !has("win32") || !has("win16")
   "Code Completion
