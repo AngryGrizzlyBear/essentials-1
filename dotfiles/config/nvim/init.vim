@@ -20,7 +20,7 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 
 " Easy Commenting
-Plug 'tpope/vim-commentary'
+Plug 'scrooloose/nerdcommenter'
 
 " Surround - Easy changing of quotes and stuff
 Plug 'tpope/vim-surround'
@@ -47,6 +47,9 @@ Plug 'groenewege/vim-less'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'digitaltoad/vim-jade'
+Plug 'wavded/vim-stylus'
+Plug 'raichoo/haskell-vim'
 
 " Org Mode
 Plug 'jceb/vim-orgmode'
@@ -79,15 +82,6 @@ endif
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-
-" Jade - Express templating
-Plug 'digitaltoad/vim-jade'
-
-" Stylus highlighting
-Plug 'wavded/vim-stylus'
-
-" Haskell
-Plug 'raichoo/haskell-vim'
 
 " end plugin list
 call plug#end()
