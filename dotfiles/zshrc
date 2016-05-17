@@ -2,7 +2,7 @@
 export ZSH=~/.oh-my-zsh
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export VISUAL="emacs -nw"
+export VISUAL="nvim"
 export EDITOR="$VISUAL"
 export ITERM_24BIT=1
 export TERM=rxvt-256color
