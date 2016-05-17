@@ -26,3 +26,8 @@ helm-adaptive-history
 /.smex-items
 /smex-save-file
 /recentf
+
+# nvim specific
+plugged
+bundle/**
+autoload/
