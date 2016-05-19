@@ -138,8 +138,9 @@ nnoremap <silent> <Leader>r :call NumberToggle()<CR>
 " This one maps F5 to delete all trailing whitespace
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-"Bind C-l to clear last search
-:noremap <silent> <c-l> :nohls<cr><c-l>
+" Pressing enter in command mode clears the current search highlighting until
+" the next search.
+nnoremap <silent> <CR> :noh<CR><CR>
 
 " ctrlp hotkeys
 let g:ctrlp_map='<c-p>'
@@ -168,6 +169,12 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gc :Gcommit<CR>
+
+" F9 is bound to fold and unfold in all modes
+inoremap <F9> <C-O>za
+nnoremap <F9> za
+onoremap <F9> <C-C>za
+vnoremap <F9> zf
 
 " Line indent guides are defaulted to off
 let g:indentLine_enabled=0
