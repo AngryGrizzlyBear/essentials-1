@@ -2,7 +2,15 @@
 export ZSH=~/.oh-my-zsh
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export VISUAL="nvim"
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  # Linux
+  export VISUAL="nvim"
+  alias vim="$VISUAL"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  # Mac OSX
+  export VISUAL="/usr/local/bin/nvim"
+  alias vim="$VISUAL"
+fi
 export EDITOR="$VISUAL"
 export ITERM_24BIT=1
 export TERM=rxvt-256color
@@ -19,7 +27,6 @@ export TERM=rxvt-256color
 #  export TERM=xterm-256color
 #fi
 
-alias vim='nvim'
 alias emacs='emacs -nw'
 alias irssi='TERM=screen-256color irssi'
 alias scheme='rlwrap mit-scheme'
