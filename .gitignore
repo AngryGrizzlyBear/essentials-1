@@ -31,3 +31,5 @@ helm-adaptive-history
 plugged
 bundle/**
 autoload/
+
+npm-debug.log
