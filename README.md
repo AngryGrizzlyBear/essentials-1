@@ -1,9 +1,9 @@
 # Linux Essentials
 
 This repository contains everything essential to getting a running Linux installation going with xmonad, tmux,
-lemonbar, and many other configurations. The current flavor of the month for me is Nix OS.
+lemonbar, and many other configurations. The current flavor of the month for me is Nix OS. For Nix specific configuration instructions and configuration files, please go to the *nix* directory and ignore everything else here.
 
-repository for the same thing. The directory structure is as follows:
+The directory structure is as follows:
 
 1. *dotfiles/* - This contains any related dotfiles
 2. *scripts/* - This directory contains most of the important things to get the installation running
