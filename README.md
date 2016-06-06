@@ -1,7 +1,7 @@
 # Linux Essentials
 
 This repository contains everything essential to getting a running Linux installation going with xmonad, tmux,
-lemonbar, and many other configurations. The current flavor of the month for me is Nix OS. For Nix specific configuration instructions and configuration files, please go to the *nix* directory and ignore everything else here.
+lemonbar, and many other configurations. The current flavor of the month for me is Nix OS. For Nix specific configuration instructions and configuration files, please go to the *nix* directory and ignore everything else here - which is left for historical Arch Linux install reasons.
 
 The directory structure is as follows:
 
