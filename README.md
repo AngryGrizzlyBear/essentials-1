@@ -1,7 +1,8 @@
 # Linux Essentials
 
-This repository contains everything essential to getting a running Arch Linux installation going with xmonad, tmux,
-lemonbar, and many other configurations. This repository is based almost entirely on [Alex McArther's](http://github.com/acmcarther)
+This repository contains everything essential to getting a running Linux installation going with xmonad, tmux,
+lemonbar, and many other configurations. The current flavor of the month for me is Nix OS.
+
 repository for the same thing. The directory structure is as follows:
 
 1. *dotfiles/* - This contains any related dotfiles
@@ -12,6 +13,7 @@ repository for the same thing. The directory structure is as follows:
   4. *scripts/lemonbar/* - This directory contains any related lemonbar scripts
   5. *scripts/diagnostics/* - This directory contains scripts for helping to diagnose problems
 3. *installation_instructions* - This file contains a series of command you copy and paste during install of Arch
+4. *nix/* - This contains all the stuff needed to get up and running with my nix configuration
 
 Take care with the dotfiles. My configurations change the terminal colors to be solarized dark. If you do not like them
 they can be easily changed in the Xresources dotfile.
