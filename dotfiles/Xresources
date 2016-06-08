@@ -139,7 +139,7 @@ xterm*faceSize: 10 10 10 10 10 10 10
 !URxvt*font: xft:Liberation Mono-8
 !URxvt*boldFont: xft:Liberation Mono:bold
 URxvt*font: xft:Inconsolata:size=10:antialias=true:hinting=true
-URxvt*boldFont: xft:Inconsolata:bold
+URxvt*boldFont: xft:Inconsolata
 URxvt.letterSpace: -1
 
 URxvt*termName: rxvt-256color
