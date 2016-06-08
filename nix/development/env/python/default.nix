@@ -8,6 +8,7 @@ with pkgs.python3Packages;
 buildPythonPackage {
   name = "pythonEnv";
   buildInputs = [
+      cython                        # Cython
       freetype
       gcc                           # GNU Compiler Collection
       git                           # Source control
