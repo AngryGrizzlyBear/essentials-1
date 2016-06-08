@@ -11,9 +11,11 @@ buildPythonPackage {
       cython                        # Cython
       freetype
       gcc                           # GNU Compiler Collection
+      gfortran
       git                           # Source control
       atlas                         # ATLAS
       blas                          # BLAS
+      openblas                      # OpenBLAS
       libxml2                       # XML2 library
       libxslt                       # XLST library
       libzip                        # Zip library
@@ -25,8 +27,11 @@ buildPythonPackage {
       python3Packages.virtualenv
       python3Packages.setuptools
       stdenv
+      which
       zlib ];
   src = null;
+  LAPACK = "test";
+  BLAS = "test";
   # When used as `nix-shell --pure`
   shellHook = ''
   unset http_proxy
