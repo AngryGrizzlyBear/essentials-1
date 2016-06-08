@@ -269,7 +269,7 @@ launcherConfig = LauncherConfig { pathToHoogle = "/home/zubin/.cabal/bin/hoogle"
 altMask = mod1Mask
 
 myTerminal :: String
-myTerminal = "urxvtc"
+myTerminal = "urxvt"
 
 myBitmapsDir :: String
 myBitmapsDir = "~/.xmonad/dzen2/"

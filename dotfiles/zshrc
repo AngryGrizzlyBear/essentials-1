@@ -36,14 +36,6 @@ alias stoppg='pg_ctl -D /usr/local/var/postgres stop'
 # This is for the mac GUI version of emacs.
 alias emacs-gui='open -a /Applications/Emacs.app $1'
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-
-# This is for nix if it exists
-if [ -f ~/.nix-profile/etc/profile.d/nix.sh ];
-then
-  source ~/.nix-profile/etc/profile.d/nix.sh
-fi
-
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
@@ -64,16 +56,36 @@ plugins=(git brew npm coffee)
 
 # User configuration
 
-export PATH="$PATH:$HOME/.rvm/bin:/usr/lib/rstudio/bin" # Add RVM to PATH for scripting
-. ~/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
-# Haskell stuff
-export PATH=~/.cabal/bin:$PATH
-export PATH=.cabal-sandbox/bin:$PATH
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+  export PATH="$PATH:$HOME/.rvm/bin:/usr/lib/rstudio/bin" # Add RVM to PATH for scripting
+  . ~/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
-# Git Town
-export PATH=~/git-town/src:$PATH
-MANPATH=$MANPATH:~/git-town/man
+  # Haskell stuff
+  export PATH=~/.cabal/bin:$PATH
+  export PATH=.cabal-sandbox/bin:$PATH
+
+  # Git Town
+  export PATH=~/git-town/src:$PATH
+  MANPATH=$MANPATH:~/git-town/man
+
+  # NOTE: 'Whence' is the ZSH idiom for bash's 'type'
+  export PRENPMPATH=$PATH
+  if [ -n "$(whence -f npm)" ];
+  then
+    NPMPATH="$(npm bin)"
+
+    if [ -d "$NPMPATH" ]; then
+      PATH=$NPMPATH:$PRENPMPATH
+    else
+      PATH=$PRENPMPATH
+    fi
+
+    export PATH=$PATH
+  fi
+fi
+
 
 precmd(){
   vcs_info
@@ -87,17 +99,3 @@ RPROMPT="%{$fg[white]%}\${vcs_info_msg_0_}%{$reset_color%}"
 PROMPT="%{$fg[white]%}┌%{$reset_color%}[%{$fg[yellow]%}%n%{$reset_color%}@%{$fg[cyan]%}%m%{$reset_color%}]─[%{$fg[green]%}%d%{$reset_color%}]
 %{$fg[white]%}└─╼%{$reset_color%} "
 
-# NOTE: 'Whence' is the ZSH idiom for bash's 'type'
-export PRENPMPATH=$PATH
-if [ -n "$(whence -f npm)" ];
-then
-  NPMPATH="$(npm bin)"
-
-  if [ -d "$NPMPATH" ]; then
-    PATH=$NPMPATH:$PRENPMPATH
-  else
-    PATH=$PRENPMPATH
-  fi
-
-  export PATH=$PATH
-fi
