@@ -24,6 +24,7 @@
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       corefonts            # Microsoft free fonts
+      freetype             # Freetype fonts
       inconsolata          # Great monospaced font
       ubuntu_font_family   # Another great font family
       unifont              # International language support
