@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    pulseaudioFull              # Audio	
+    pulseaudioFull              # Audio
+    spotify                     # Spotify
   ];
 
   hardware = {

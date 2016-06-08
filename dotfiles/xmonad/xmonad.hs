@@ -194,7 +194,7 @@ main = do
     `additionalKeys`
     [((myModMask                , xK_q     ), spawn restartXmonad)
     ,((myModMask .|. shiftMask  , xK_c     ), kill)
-    ,((myModMask .|. shiftMask  , xK_b     ), spawn "google-chrome-stable")
+    ,((myModMask .|. shiftMask  , xK_b     ), spawn "chromium")
     ,((myModMask .|. shiftMask  , xK_p     ), spawn "mpc prev")
     ,((myModMask .|. shiftMask  , xK_n     ), spawn "mpc next")
     ,((myModMask .|. shiftMask  , xK_i     ), spawn "xcalib -invert -alter")
@@ -252,9 +252,9 @@ main = do
     ,((0                        , xF86XK_Sleep    ), spawn "pm-suspend")
     ,((0                        , xF86XK_MonBrightnessUp      ), spawn "xbacklight -inc 10")
     ,((0                        , xF86XK_MonBrightnessDown    ), spawn "xbacklight -dec 10")
-    ,((0                        , xF86XK_AudioMute), spawn "~/scripts/dvol2 -t")
-    ,((0                        , xF86XK_AudioLowerVolume), spawn "~/scripts/dvol2 -d 2 & mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga")
-    ,((0                        , xF86XK_AudioRaiseVolume ), spawn "~/scripts/dvol2 -i 2 & mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga")
+    ,((0                        , xF86XK_AudioMute), spawn "amixer -q set Master toggle")
+    ,((0                        , xF86XK_AudioLowerVolume), spawn "amixer -q set Master 5%-")
+    ,((0                        , xF86XK_AudioRaiseVolume ), spawn "amixer -q set Master 5%+")
     ]
     `additionalMouseBindings`
     [((myModMask, 6), \_ -> moveTo Next NonEmptyWS)

@@ -5,6 +5,7 @@
     chromium                    # Browser
     gtk                         # For GTK+ themes
     htop                        # System monitor
+    libreoffice                 # Libreoffice
     mplayer                     # Video player
     xdotool                     # Diagnostic tool for mouse and keyboard
   ];

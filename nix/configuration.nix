@@ -8,7 +8,9 @@
       ./audio
       ./input
       ./users
+      ./security
       ./development
+      ./games
       ./comms
       ./software
     ];
