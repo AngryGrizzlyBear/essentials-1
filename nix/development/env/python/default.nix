@@ -30,8 +30,12 @@ buildPythonPackage {
       which
       zlib ];
   src = null;
-  LAPACK = "test";
-  BLAS = "test";
+
+  # Environment variables for scipy builds
+  ATLAS = atlas;
+  BLAS = blas;
+  LAPACK = liblapack;
+
   # When used as `nix-shell --pure`
   shellHook = ''
   unset http_proxy
