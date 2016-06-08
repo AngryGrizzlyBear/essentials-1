@@ -9,6 +9,7 @@ buildPythonPackage {
   name = "pythonEnv";
   buildInputs = [
       freetype
+      gcc                           # GNU Compiler Collection
       git                           # Source control
       atlas                         # ATLAS
       blas                          # BLAS
@@ -17,6 +18,7 @@ buildPythonPackage {
       libzip                        # Zip library
       liblapack                     # Linear Algebra pack library
       libpng                        # PNG library
+      xlibs.libX11                  # X11 library
       pkgconfig
       python3
       python3Packages.virtualenv
