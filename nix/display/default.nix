@@ -17,10 +17,21 @@
     xorg.xbacklight           # Backlight manager
   ];
 
-  # services.xserver.videoDriver = 
+  # services.xserver.videoDriver =
+
+  fonts = {
+    enableFontDir = true;
+    enableGhostscriptFonts = true;
+    fonts = with pkgs; [
+      corefonts            # Microsoft free fonts
+      inconsolata          # Great monospaced font
+      ubuntu_font_family   # Another great font family
+      unifont              # International language support
+    ];
+  };
 
   services = {
-    udisks2.enable = true;    
+    udisks2.enable = true;
 
     xserver = {
       enableTCP = false;

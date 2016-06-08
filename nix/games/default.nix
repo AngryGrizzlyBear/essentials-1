@@ -3,6 +3,6 @@
   environment.systemPackages = with pkgs; [
     nethack
     steam
-    tibia
+    # tibia
   ];
 }

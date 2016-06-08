@@ -126,7 +126,7 @@ URxvt.tabbed.title: no
 ! URxvt.keysym.Control-Down:     \033[1;5B
 ! URxvt.keysym.Control-Left:     \033[1;5D
 ! URxvt.keysym.Control-Right:    \033[1;5C
- 
+
 ! URxvt.keysym.C-S-0:
 
 Xft.dpi: 96
@@ -135,10 +135,10 @@ Xft.hinting:    1
 Xft.hintstyle:  hintslight
 Xft.rgba:       rgb
 xterm*faceName: Inconsolata
-xterm*faceSize: 7 7 7 7 7 7 7
+xterm*faceSize: 10 10 10 10 10 10 10
 !URxvt*font: xft:Liberation Mono-8
 !URxvt*boldFont: xft:Liberation Mono:bold
-URxvt*font: xft:Inconsolata:size=8:antialias=true:hinting=true
+URxvt*font: xft:Inconsolata:size=10:antialias=true:hinting=true
 URxvt*boldFont: xft:Inconsolata:bold
 URxvt.letterSpace: -1
 

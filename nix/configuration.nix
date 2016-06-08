@@ -32,9 +32,9 @@
   networking.hostName = "ares"; # Define your hostname.
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  
+
   i18n = {
-    consoleFont = "inconsolata";
+    consoleFont = "lat9w-16";
     consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
   };
