@@ -135,12 +135,11 @@ Xft.hinting:    1
 Xft.hintstyle:  hintslight
 Xft.rgba:       rgb
 xterm*faceName: Inconsolata
-xterm*faceSize: 10 10 10 10 10 10 10
+xterm*faceSize: 9 9 9 9 9 9 9
 !URxvt*font: xft:Liberation Mono-8
 !URxvt*boldFont: xft:Liberation Mono:bold
-URxvt*font: xft:Inconsolata:size=10:antialias=true:hinting=true
-URxvt*boldFont: xft:Inconsolata
-URxvt.letterSpace: -1
+URxvt*font: xft:Inconsolata:size=9:antialias=true:hinting=true
+URxvt*boldFont: xft:Inconsolata:size=9:weight=bold:antialias=true:hinting=true
 
 URxvt*termName: rxvt-256color
 URxvt.iso14755: False
