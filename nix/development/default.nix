@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 {
   environment = {
-    # LIBEV_LIBS is used to specify where libev is so opam can find it.
     variables = {
       EDITOR = "nvim";
     };
@@ -22,6 +21,8 @@
       m4                            # GNU Macro Processor
       neovim                        # Better vim
       ocaml                         # OCaml language
+      ocamlPackages.ocaml_batteries # OCaml batteries included
+      ocamlPackages.merlin          # OCaml editor enhancement
       ocamlPackages.findlib         # OCaml findlib
       ocamlPackages.ocaml_lwt       # OCaml LWT Library - Saves time otherwise spent fighting with opam
       ocamlPackages.ocaml_oasis     # OASIS Project Architecture Tool for OCaml
