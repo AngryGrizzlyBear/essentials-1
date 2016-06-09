@@ -50,6 +50,7 @@ Plug 'mxw/vim-jsx'
 Plug 'digitaltoad/vim-jade'
 Plug 'wavded/vim-stylus'
 Plug 'raichoo/haskell-vim'
+Plug 'OCamlPro/ocp-indent'
 
 " Org Mode
 Plug 'jceb/vim-orgmode'
@@ -163,6 +164,10 @@ endif
 
 " Color customizations
 " let g:indentLine_color_term=###
+
+" Merlin for OCaml
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
 " Fugitive bindings
 nnoremap <Leader>gs :Gstatus<CR>

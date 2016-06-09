@@ -8,7 +8,6 @@ with pkgs.python3Packages;
 buildPythonPackage {
   name = "pythonEnv";
   buildInputs = [
-      cython                        # Cython
       freetype
       gcc                           # GNU Compiler Collection
       gfortran
@@ -28,13 +27,15 @@ buildPythonPackage {
       python3Packages.setuptools
       stdenv
       which
-      zlib ];
+      zlib
+      zsh                           # ZSH because I develop in ZSH
+    ];
   src = null;
 
   # Environment variables for scipy builds
   ATLAS = atlas;
-  BLAS = blas;
-  LAPACK = liblapack;
+  # BLAS = openblas;
+  # LAPACK = liblapack;
 
   # When used as `nix-shell --pure`
   shellHook = ''
