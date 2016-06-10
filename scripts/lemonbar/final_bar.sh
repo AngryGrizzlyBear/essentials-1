@@ -17,7 +17,11 @@ battery() {
 }
 
 volume() {
-    amixer get Master | grep -P -o '\[[0-9]+%\]'
+
+    # amixer get Master works fine on everything but
+    # Ubuntu. You need amixer -d pulse in Ubuntu.
+    amixer -D pulse get Master | grep -P -o '\[[0-9]+%\]'
+
 }
 
 cpuload() {

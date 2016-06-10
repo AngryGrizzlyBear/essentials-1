@@ -252,9 +252,9 @@ main = do
     ,((0                        , xF86XK_Sleep    ), spawn "pm-suspend")
     ,((0                        , xF86XK_MonBrightnessUp      ), spawn "xbacklight -inc 10")
     ,((0                        , xF86XK_MonBrightnessDown    ), spawn "xbacklight -dec 10")
-    ,((0                        , xF86XK_AudioMute), spawn "amixer -q set Master toggle")
-    ,((0                        , xF86XK_AudioLowerVolume), spawn "amixer -q set Master 5%-")
-    ,((0                        , xF86XK_AudioRaiseVolume ), spawn "amixer -q set Master 5%+")
+    ,((0                        , xF86XK_AudioMute), spawn "amixer -D pulse -q set Master toggle")
+    ,((0                        , xF86XK_AudioLowerVolume), spawn "amixer -D pulse -q set Master 5%-")
+    ,((0                        , xF86XK_AudioRaiseVolume ), spawn "amixer -D pulse -q set Master 6%+")
     ]
     `additionalMouseBindings`
     [((myModMask, 6), \_ -> moveTo Next NonEmptyWS)

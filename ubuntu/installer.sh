@@ -21,6 +21,7 @@ sudo apt-get -qq -y install xinit
 sudo apt-get -qq -y install wmname
 sudo apt-get -qq -y install libxcb-xinerama0-dev
 sudo apt-get -qq -y install libxcb-randr0-dev
+sudo apt-get -qq -y install xbacklight
 
 # Build and install lemonbar from source
 echo "Installing lemonbar from source..."
