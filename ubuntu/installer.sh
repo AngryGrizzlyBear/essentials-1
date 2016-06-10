@@ -36,3 +36,4 @@ sudo apt-get purge gnome-sudoku
 sudo apt-get purge mahjongg
 sudo apt-get purge gnomine
 sudo apt-get purge ace-of-penguins
+sudo apt-get purge onboard
