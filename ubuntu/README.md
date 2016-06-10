@@ -1,7 +1,7 @@
 # Ubuntu Installation Notes
 
 By running the installer it wipes a complete install and turns it into something more minimal and less resource
-intensive. Kit includes:
+intensive. An alternative would've been to start with the Ubuntu minimal disk and work up, but the full Ubuntu ISO comes with some conveniences that I wanted to keep. Kit includes:
 
   - Compton
   - Xmonad
