@@ -1,12 +1,8 @@
 #!/bin/bash
 
 case "$1" in
-suspend|hibernate)
-    actions to
-    take
-    on suspend
-    or hibernate
-    ;;
+# suspend|hibernate)
+#    ;;
 resume|thaw)
     physlock -d &
     ;;
