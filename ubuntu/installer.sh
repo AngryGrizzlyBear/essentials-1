@@ -42,6 +42,7 @@ sudo apt-get -qq -y install python-dev
 sudo apt-get -qq -y install python-pip
 sudo apt-get -qq -y install python3-dev
 sudo apt-get -qq -y install python3-pip
+curl -kL https://raw.github.com/hcarty/ocamlbrew/master/ocamlbrew-install | bash
 
 # Editors
 echo "Installing editors..."
