@@ -87,6 +87,7 @@ sudo apt-get -qq -y install xdotool
 sudo apt-get -qq -y install cmake
 sudo apt-get -qq -y install gsimplecal
 sudo apt-get -qq -y install xclip
+sudo apt-get -qq -y install aspcud
 
 # Comms
 echo "Installing comms..."
