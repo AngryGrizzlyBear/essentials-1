@@ -43,7 +43,7 @@ sudo apt-get -qq -y install python-pip
 sudo apt-get -qq -y install python3-dev
 sudo apt-get -qq -y install python3-pip
 sudo apt-get -qq -y install m4
-curl -kL https://raw.github.com/hcarty/ocamlbrew/master/ocamlbrew-install | bash
+wget https://raw.github.com/ocaml/opam/master/shell/opam_installer.sh -O - | sh -s /usr/local/bin
 
 # Editors
 echo "Installing editors..."
