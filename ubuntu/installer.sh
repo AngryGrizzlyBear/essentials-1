@@ -2,6 +2,15 @@
 # Tested on Ubuntu 16.04 LTS
 
 echo "======== UBUNTU AUTO-INSTALL SCRIPT ========"
+
+echo "Checking for internet connection..."
+nc -z 8.8.8.8 53  >/dev/null 2>&1
+online=$?
+if [ $online -ne 0 ]; then
+  echo "No internet connection detected! Please enable an internet connection before continuing."
+  exit
+fi
+
 # Pre-setup
 echo "Running pre-setup..."
 sudo add-apt-repository ppa:neovim-ppa/unstable
@@ -43,6 +52,7 @@ sudo apt-get -qq -y install python-dev
 sudo apt-get -qq -y install python-pip
 sudo apt-get -qq -y install python3-dev
 sudo apt-get -qq -y install python3-pip
+sudo apt-get -qq -y install python3-setuptools
 sudo apt-get -qq -y install m4
 sudo apt-get -qq -y install ocaml
 sudo apt-get -qq -y install aspcud
@@ -52,6 +62,9 @@ wget https://raw.github.com/ocaml/opam/master/shell/opam_installer.sh -O - | sh 
 echo "Installing editors..."
 sudo apt-get -qq -y install vim
 sudo apt-get -qq -y install neovim
+
+echo "Installing python tools for neovim..."
+sudo pip install neovim
 
 # Terminals
 echo "Installing terminal..."
