@@ -17,5 +17,5 @@ xset r rate 300 30
 unclutter -grab &
 tmux start-server
 pulseaudio -D
-wmname LG3D
+wmname compton
 xmonad

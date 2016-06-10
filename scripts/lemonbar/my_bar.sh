@@ -1,2 +1,1 @@
-back="#00000000"
-lemonbar -f "Inconsolata:medium:pixelsize=12" -B "black" -g "800x14+1118+1"
+lemonbar -B "#1f1f1f" -g "800x14+1118+1"

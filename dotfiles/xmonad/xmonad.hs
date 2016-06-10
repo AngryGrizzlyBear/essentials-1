@@ -161,7 +161,7 @@ scratchpads = [ NS "htop" "urxvt -name htop -e htop" (resource =? "htop") defaul
 -- Spawn pipes and menus on boot, set default settings
 --------------------------------------------------------------------------------------------------------------------
 myXmonadBar :: String
-myXmonadBar = "lemonbar -f \"Inconsolata:medium:pixelsize=12\" -B \"black\" | bash"
+myXmonadBar = "lemonbar -f \"inconsolata 12\" -B \"#1f1f1f\" | bash"
 
 restartXmonad = "killall lemonbar; cd ~/.xmonad; ghc -threaded xmonad.hs; mv xmonad xmonad-x86_64-linux; xmonad --restart;"
 

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # z3bra - (c) wtfpl 2014
 # Fetch infos on your computer, and print them to stdout every second.
