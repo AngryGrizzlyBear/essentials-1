@@ -30,6 +30,7 @@ sudo apt-get -y install vim
 sudo apt-get -y install neovim
 
 # Source Control
+echo "Installing source control..."
 sudo apt-get -y install git
 
 # Remove Unity (This has to be done here so we can reinstall what unity removes)
