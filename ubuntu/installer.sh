@@ -37,12 +37,14 @@ echo "Installing Dmenu..."
 sudo apt-get -qq -y install suckless-tools
 
 # Languages
-echo "Installing languages..."
+echo "Installing languages and tools..."
 sudo apt-get -qq -y install python-dev
 sudo apt-get -qq -y install python-pip
 sudo apt-get -qq -y install python3-dev
 sudo apt-get -qq -y install python3-pip
 sudo apt-get -qq -y install m4
+sudo apt-get -qq -y install ocaml
+sudo apt-get -qq -y install aspcud
 wget https://raw.github.com/ocaml/opam/master/shell/opam_installer.sh -O - | sh -s /usr/local/bin
 
 # Editors
@@ -87,7 +89,6 @@ sudo apt-get -qq -y install xdotool
 sudo apt-get -qq -y install cmake
 sudo apt-get -qq -y install gsimplecal
 sudo apt-get -qq -y install xclip
-sudo apt-get -qq -y install aspcud
 
 # Comms
 echo "Installing comms..."

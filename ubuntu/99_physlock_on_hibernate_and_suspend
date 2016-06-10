@@ -1,0 +1,13 @@
+#!/bin/bash
+
+case "$1" in
+suspend|hibernate)
+    actions to
+    take
+    on suspend
+    or hibernate
+    ;;
+resume|thaw)
+    physlock -d &
+    ;;
+esac
