@@ -23,7 +23,7 @@ sudo apt-get -qq -y install libxcb-xinerama0-dev
 sudo apt-get -qq -y install libxcb-randr0-dev
 
 # Build and install lemonbar from source
-echo "Installing lemonbar from source"
+echo "Installing lemonbar from source..."
 pushd
 cd ~
 git clone https://github.com/LemonBoy/bar.git
