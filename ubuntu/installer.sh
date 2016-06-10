@@ -29,6 +29,9 @@ echo "Installing editors..."
 sudo apt-get -y install vim
 sudo apt-get -y install neovim
 
+# Source Control
+sudo apt-get -y install git
+
 # Remove Unity (This has to be done here so we can reinstall what unity removes)
 echo "Removing Unity..."
 sudo apt-get -y purge unity
