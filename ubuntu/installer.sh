@@ -23,7 +23,11 @@ sudo apt-get install python3-pip
 sudo apt-get install vim
 sudo apt-get install neovim
 
+# Remove Unity (This has to be done here so we can reinstall what unity removes)
+sudo apt-get purge unity
+
 # Tools
+sudo apt-get install transmission
 sudo apt-get install htop
 sudo apt-get install chromium-browser
 
