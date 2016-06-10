@@ -8,12 +8,16 @@ sudo apt-get upgrade
 
 # Window Manager
 sudo apt-get install xmonad
+sudo apt-get install libghc-xmonad-contrib-dev
 
 # Dmenu
 sudo apt-get install suckless-tools
 
 # Languages
-sudo apt-get install python-dev python-pip python3-dev python3-pip
+sudo apt-get install python-dev 
+sudo apt-get install python-pip 
+sudo apt-get install python3-dev 
+sudo apt-get install python3-pip
 
 # Editors
 sudo apt-get install vim
