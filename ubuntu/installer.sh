@@ -101,6 +101,10 @@ echo "Installing fonts..."
 sudo apt-get -qq -y install fonts-inconsolata
 fc-cache --really-force -v
 
+# Security
+echo "Installing security..."
+sudo apt-get -qq -y install physlock
+
 # Cleanup
 echo "Cleaning up unneccessary programs..."
 sudo apt-get -qq -y purge firefox
