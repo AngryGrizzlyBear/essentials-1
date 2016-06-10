@@ -42,6 +42,7 @@ sudo apt-get -qq -y install python-dev
 sudo apt-get -qq -y install python-pip
 sudo apt-get -qq -y install python3-dev
 sudo apt-get -qq -y install python3-pip
+sudo apt-get -qq -y install m4
 curl -kL https://raw.github.com/hcarty/ocamlbrew/master/ocamlbrew-install | bash
 
 # Editors
@@ -124,6 +125,12 @@ sudo apt-get -qq -y purge lightdm
 sudo apt-get -qq -y purge gnome-terminal
 sudo apt-get -qq -y purge gnome-terminal-data
 sudo apt -qq -y autoremove
+
+# Right here is where the sed one-line would go to replace
+# "quiet splash" with "text" in the grub config and then call
+# sudo update grub. This eliminates Ubuntu getting stuck trying
+# to boot a login screen that doesn't exist by dropping you
+# straight into a tty.
 
 echo "!!! DONE INSTALLING !!!"
 echo "======== REBOOTING IN 30 SECONDS ========"
