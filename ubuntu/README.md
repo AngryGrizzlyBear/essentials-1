@@ -1,4 +1,6 @@
-# Ubuntu Installation Notes
+# Ubuntu Install
+
+![desktop screenshot](../current-desktop.png?raw=true "Current Desktop")
 
 By running the installer it wipes a complete install and turns it into something more minimal and less resource
 intensive. An alternative would've been to start with the Ubuntu minimal disk and work up, but the full Ubuntu ISO comes with some conveniences that I wanted to keep. Kit includes:
@@ -14,10 +16,6 @@ intensive. An alternative would've been to start with the Ubuntu minimal disk an
 
 It also substitutes Ubuntu's stock media players with less resource intensive alternatives such as `mplayer` and
 `ffmpeg`.
-
-
-(PUT A SCREENSHOT HERE, LOL).
-
 
 *NOTE:* After rebooting you will boot into a black screen. See the section on GRUB for details. To get to a login
 screen press `ctrl + alt + f1` and login normally.
