@@ -194,7 +194,7 @@ main = do
     `additionalKeys`
     [((myModMask                , xK_q     ), spawn restartXmonad)
     ,((myModMask .|. shiftMask  , xK_c     ), kill)
-    ,((myModMask .|. shiftMask  , xK_b     ), spawn "chromium")
+    ,((myModMask .|. shiftMask  , xK_b     ), spawn "chromium-browser")
     ,((myModMask .|. shiftMask  , xK_p     ), spawn "mpc prev")
     ,((myModMask .|. shiftMask  , xK_n     ), spawn "mpc next")
     ,((myModMask .|. shiftMask  , xK_i     ), spawn "xcalib -invert -alter")
@@ -219,6 +219,7 @@ main = do
     ,((myModMask .|. altMask .|. controlMask       , xK_j     ), sendMessage $ BSP.MoveSplit D)
     ,((myModMask .|. altMask .|. controlMask       , xK_k     ), sendMessage $ BSP.MoveSplit U)
     ,((myModMask .|. altMask .|. controlMask       , xK_l     ), sendMessage $ BSP.MoveSplit R)
+    ,((myModMask .|. shiftMask  , xK_l     ), spawn "physlock -d -u $(logname)")
     ,((myModMask                , xK_p     ), moveTo Prev NonEmptyWS)
     ,((myModMask                , xK_n     ), moveTo Next NonEmptyWS)
     ,((myModMask                , xK_c     ), moveTo Next EmptyWS)

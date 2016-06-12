@@ -17,10 +17,10 @@ xmonad.hs:203:63: Warning:
     In the use of ‘defaultXPConfig’ (imported from XMonad.Prompt):
     Deprecated: "Use def (from Data.Default, and re-exported from XMonad.Prompt) instead."
 
-xmonad.hs:240:62: Warning:
+xmonad.hs:241:62: Warning:
     In the use of ‘defaultXPConfig’ (imported from XMonad.Prompt):
     Deprecated: "Use def (from Data.Default, and re-exported from XMonad.Prompt) instead."
 
-xmonad.hs:241:59: Warning:
+xmonad.hs:242:59: Warning:
     In the use of ‘defaultXPConfig’ (imported from XMonad.Prompt):
     Deprecated: "Use def (from Data.Default, and re-exported from XMonad.Prompt) instead."
