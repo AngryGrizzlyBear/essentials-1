@@ -1,4 +1,4 @@
-# Ubuntu Installation Notes
+# Ubuntu Install
 
 ![desktop screenshot](../current-desktop.png?raw=true "Current Desktop")
 
