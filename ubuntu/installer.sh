@@ -56,6 +56,7 @@ sudo apt-get -qq -y install python3-setuptools
 sudo apt-get -qq -y install m4
 sudo apt-get -qq -y install ocaml
 sudo apt-get -qq -y install aspcud
+sudo apt-get -qq -y install liblapack-dev
 wget https://raw.github.com/ocaml/opam/master/shell/opam_installer.sh -O - | sh -s /usr/local/bin
 
 # Editors
