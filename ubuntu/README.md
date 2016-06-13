@@ -29,6 +29,26 @@ Xmonad to start, check the logs, and then those two files.
 
 To Kill the server at any time press `alt + shift + q`.
 
+### Xmonad Hotkeys
+
+Here are some hotkeys to get you started:
+
+* `mod4 + shift + q`: Kill X server
+* `mod4 + q`: Recompile Xmonad
+* `mod4 + w`: Move window up
+* `mod4 + s`: Move window down
+* `mod4 + a`: Move window left
+* `mod4 + d`: Move window right
+* `mod4 + enter`: Spawn a new window
+* `mod4 + space`: Launch dmenu
+* `mod4 + h`: Shift focus left
+* `mod4 + j`: Shift focus down
+* `mod4 + k`: Shift focus up
+* `mod4 + l`: Shift focus right
+* `mod4 + <1...9>`: Change to nth workspace 
+* `mod4 + t`: Retile windows
+* `mod4 + shift + c`: Close currently focused window
+
 ## GRUB
 
 A small change has to be applied to stop Ubuntu from booting into a non-existent display manager's login screen:
