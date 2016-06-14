@@ -17,6 +17,8 @@ sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt-add-repository -y "deb http://repository.spotify.com stable non-free"
 sudo apt-add-repository -y ppa:richardgv/compton
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D2C19886
+sudo dpkg --add-architecture i386
+sudo add-apt-repository ppa:wine/wine-builds
 sudo apt-get -qq -y update
 sudo apt-get -qq -y upgrade
 
@@ -57,6 +59,7 @@ sudo apt-get -qq -y install m4
 sudo apt-get -qq -y install ocaml
 sudo apt-get -qq -y install aspcud
 sudo apt-get -qq -y install liblapack-dev
+sudo apt-get install --install-recommends winehq-devel
 wget https://raw.github.com/ocaml/opam/master/shell/opam_installer.sh -O - | sh -s /usr/local/bin
 
 # Editors
@@ -91,6 +94,7 @@ echo "Installing multimedia..."
 sudo apt-get -qq -y install ffmpeg
 sudo apt-get -qq -y install mplayer
 sudo apt-get -qq -y install spotify-client
+sudo apt-get -qq -y install pepperflashplugin-nonfree
 
 # Tools
 echo "Installing tools..."
