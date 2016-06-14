@@ -161,7 +161,7 @@ scratchpads = [ NS "htop" "urxvt -name htop -e htop" (resource =? "htop") defaul
 -- Spawn pipes and menus on boot, set default settings
 --------------------------------------------------------------------------------------------------------------------
 myXmonadBar :: String
-myXmonadBar = "lemonbar -f \"-benis-uushi-medium-r-normal--11-90-75-75-p-58-iso10646-1\" -B \"black\" | bash"
+myXmonadBar = "lemonbar -f \"inconsolata 12\" -B \"#1f1f1f\" | bash"
 
 restartXmonad = "killall lemonbar; cd ~/.xmonad; ghc -threaded xmonad.hs; mv xmonad xmonad-x86_64-linux; xmonad --restart;"
 
@@ -194,7 +194,7 @@ main = do
     `additionalKeys`
     [((myModMask                , xK_q     ), spawn restartXmonad)
     ,((myModMask .|. shiftMask  , xK_c     ), kill)
-    ,((myModMask .|. shiftMask  , xK_b     ), spawn "google-chrome-stable")
+    ,((myModMask .|. shiftMask  , xK_b     ), spawn "chromium-browser")
     ,((myModMask .|. shiftMask  , xK_p     ), spawn "mpc prev")
     ,((myModMask .|. shiftMask  , xK_n     ), spawn "mpc next")
     ,((myModMask .|. shiftMask  , xK_i     ), spawn "xcalib -invert -alter")
@@ -219,6 +219,7 @@ main = do
     ,((myModMask .|. altMask .|. controlMask       , xK_j     ), sendMessage $ BSP.MoveSplit D)
     ,((myModMask .|. altMask .|. controlMask       , xK_k     ), sendMessage $ BSP.MoveSplit U)
     ,((myModMask .|. altMask .|. controlMask       , xK_l     ), sendMessage $ BSP.MoveSplit R)
+    ,((myModMask .|. shiftMask  , xK_l     ), spawn "physlock -d -u $(logname)")
     ,((myModMask                , xK_p     ), moveTo Prev NonEmptyWS)
     ,((myModMask                , xK_n     ), moveTo Next NonEmptyWS)
     ,((myModMask                , xK_c     ), moveTo Next EmptyWS)
@@ -252,9 +253,9 @@ main = do
     ,((0                        , xF86XK_Sleep    ), spawn "pm-suspend")
     ,((0                        , xF86XK_MonBrightnessUp      ), spawn "xbacklight -inc 10")
     ,((0                        , xF86XK_MonBrightnessDown    ), spawn "xbacklight -dec 10")
-    ,((0                        , xF86XK_AudioMute), spawn "~/scripts/dvol2 -t")
-    ,((0                        , xF86XK_AudioLowerVolume), spawn "~/scripts/dvol2 -d 2 & mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga")
-    ,((0                        , xF86XK_AudioRaiseVolume ), spawn "~/scripts/dvol2 -i 2 & mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga")
+    ,((0                        , xF86XK_AudioMute), spawn "amixer -D pulse -q set Master toggle")
+    ,((0                        , xF86XK_AudioLowerVolume), spawn "amixer -D pulse -q set Master 5%-")
+    ,((0                        , xF86XK_AudioRaiseVolume ), spawn "amixer -D pulse -q set Master 6%+")
     ]
     `additionalMouseBindings`
     [((myModMask, 6), \_ -> moveTo Next NonEmptyWS)
@@ -269,7 +270,7 @@ launcherConfig = LauncherConfig { pathToHoogle = "/home/zubin/.cabal/bin/hoogle"
 altMask = mod1Mask
 
 myTerminal :: String
-myTerminal = "urxvtc"
+myTerminal = "urxvt"
 
 myBitmapsDir :: String
 myBitmapsDir = "~/.xmonad/dzen2/"

@@ -1,10 +1,8 @@
 #!/bin/sh
 
 xrdb ~/.Xresources
-# zsh ~/.fehbg &
-# exec ~/essentials/scripts/sysinit/xmonad_start.sh
-# exec awesome
-feh --bg-scale ~/essentials/backgrounds/glass-blue-bg.jpg
+compton --config ~/.compton.conf
+feh --bg-scale ~/essentials/backgrounds/dark-forest.jpg
 xmodmap -e 'clear Lock'
 xmodmap -e 'keycode 0x42=Escape'
-exec i3
+exec ~/essentials/scripts/sysinit/xmonad_start.sh

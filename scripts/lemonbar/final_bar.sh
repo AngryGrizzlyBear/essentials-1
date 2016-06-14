@@ -1,50 +1,56 @@
-#!/bin/sh
-#
+#!/usr/bin/env bash
 # z3bra - (c) wtfpl 2014
 # Fetch infos on your computer, and print them to stdout every second.
+#   Also takes content from window manager to build bar
+
+# ICONS
+wifi_icon=''
+cpu_icon=''
+ram_icon=''
+speaker_icon=''
+plug_icon=''
+thunderbolt_icon=''
+clock_icon=''
 
 clock() {
-    date '+%Y-%m-%d %H:%M'
+  date=$(date '+%Y-%m-%d %H:%M')
+  echo "%{F#FFFFFFFF}$clock_icon $date%{F#FF6A9FB5}"
 }
 
 battery() {
     BATC=/sys/class/power_supply/BAT0/capacity
     BATS=/sys/class/power_supply/BAT0/status
 
-    test "`cat $BATS`" = "Charging" && echo -n '+' || echo -n '-'
+    cap="$(sed -n p $BATC)"
+    green_decimal=$((128 + (128 * $cap) / 101))
+    red_decimal=$((128 + (128 * (100 - $cap)) / 101))
+    red_hex=$(echo "obase=16; $red_decimal" | bc)
+    green_hex=$(echo "obase=16; $green_decimal" | bc)
 
-    sed -n p $BATC
+    test "`cat $BATS`" = "Charging" && echo -n "%{F#FFFFFFFF}$plug_icon " || echo -n "%{F#FFFFFF00}$thunderbolt_icon "
+
+    echo "%{F#FF${red_hex}${green_hex}80}$cap%%{F#FF6A9FB5}"
 }
 
 volume() {
-    amixer get Master | grep -P -o '\[[0-9]+%\]'
+  volume=$(amixer -D pulse get Master | grep -P -o '\[[0-9]+%\]')
+  echo "%{F#FFC2A366}$speaker_icon $volume%{F#FF6A9FB5}"
 }
 
 cpuload() {
     LINE=`ps -eo pcpu |grep -vE '^\s*(0.0|%CPU)' |sed -n '1h;$!H;$g;s/\n/ +/gp'`
-    bc <<< $LINE
+    cpu=$(bc <<< $LINE)
+    echo "%{F#FF94FF70}$cpu_icon $cpu%%{F#FF6A9FB5}"
 }
 
 memused() {
-  free -m | head -n 2 | tail -n 1 | awk '{printf("%2.1fG/%0.2gG\n" ,($3/1024),($2/1024))}'
+  mem=$(free -m | head -n 2 | tail -n 1 | awk '{printf("%2.1fG/%0.2gG\n" ,($3/1024),($2/1024))}')
+  echo "%{F#FF80E6FF}$ram_icon $mem%{F#FF6A9FB5}"
 }
 
-network() {
-    read -d '' lo int1 int2 <<< $(ip link | sed -n 's/^[0-9]: \(.*\):.*$/\1/p')
-    if iwconfig $int1 >/dev/null 2>&1; then
-        wifi=$int1
-        eth0=$int2
-    else
-        wifi=$int2
-        eth0=$int1
-    fi
-    ip link show $eth0 | grep 'state UP' >/dev/null && int=$eth0 || int=$wifi
-
-    ping -c 1 8.8.8.8 >/dev/null 2>&1 &&
-      echo "$int connected" || echo "$int disconnected"
-
-    #int=eth0
-
+wifi() {
+  current_wifi=$(nmcli -t --fields NAME con show --active)
+  echo "%{F#FFB8D4DC}$wifi_icon $current_wifi%{F#FF6A9FB5} |"
 }
 
 groups() {
@@ -61,16 +67,29 @@ groups() {
 alsamixer='xdotool key super+F10'
 htop='xdotool key super+F9'
 # This loop will fill a buffer with our infos, and output it to stdout.
-while :; do
+function build_status  {
     buf="%{r}%{F#FF6A9FB5}"
-    buf="${buf} %{A:$htop:}⮡ $(cpuload)%% "
-    buf="${buf} | ⮡ $(memused)%{A}"
-    buf="${buf} | $(network) "
-    buf="${buf} |%{A:$alsamixer:} ⮞ $(volume)%%%{A}"
-    buf="${buf} | ⮡$(battery)%{A}"
-    buf="${buf} |%{A:gsimplecal&:} ⮖ $(clock)%{A}"
+    buf="${buf} $(wifi)"
+    buf="${buf} $(cpuload) |"
+    buf="${buf} $(memused) |"
+    buf="${buf} $(volume) |"
+    buf="${buf} $(battery) |"
+    buf="${buf} $(clock)"
 
     echo $buf
-    # use `nowplaying scroll` to get a scrolling output!
-    sleep 0.5 # The HUD will be updated every second
+}
+
+while true; do
+
+  read -t 0.25 new_wm_content
+  if [ -n "$new_wm_content" ]; then
+    wm_content="$new_wm_content"
+  fi
+
+  status_content="$(build_status)"
+  combined_content="$wm_content$status_content"
+
+  echo "$combined_content"
+
+  sleep 0.1
 done
