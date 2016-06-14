@@ -159,6 +159,11 @@ else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
+" Javascript linting on the fly
+" npm install -g eslint to get it working
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_jsxhint_exec = 'eslint'
+
 " Indent lines customizations
 
 " Color customizations
