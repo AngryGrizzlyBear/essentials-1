@@ -143,6 +143,10 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " the next search.
 nnoremap <silent> <CR> :noh<CR><CR>
 
+" Move tabs left and right
+nnoremap <silent> _ :tabp<CR>
+nnoremap <silent> + :tabn<CR>
+
 " ctrlp hotkeys
 let g:ctrlp_map='<c-p>'
 let g:ctrlp_cmd='CtrlP'
