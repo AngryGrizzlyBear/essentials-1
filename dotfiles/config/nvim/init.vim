@@ -143,6 +143,10 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " the next search.
 nnoremap <silent> <CR> :noh<CR><CR>
 
+" Move tabs left and right
+nnoremap <silent> _ :tabp<CR>
+nnoremap <silent> + :tabn<CR>
+
 " ctrlp hotkeys
 let g:ctrlp_map='<c-p>'
 let g:ctrlp_cmd='CtrlP'
@@ -159,6 +163,11 @@ if exists('+colorcolumn')
 else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
+
+" Javascript linting on the fly
+" npm install -g eslint to get it working
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_jsxhint_exec = 'eslint'
 
 " Indent lines customizations
 
