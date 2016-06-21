@@ -19,6 +19,9 @@ sudo apt-add-repository -y ppa:richardgv/compton
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D2C19886
 sudo dpkg --add-architecture i386
 sudo add-apt-repository ppa:wine/wine-builds
+sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | sudo tee -a /etc/apt/sources.list
+gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+gpg -a --export E084DAB9 | sudo apt-key add -
 sudo apt-get -qq -y update
 sudo apt-get -qq -y upgrade
 
@@ -61,6 +64,12 @@ sudo apt-get -qq -y install aspcud
 sudo apt-get -qq -y install liblapack-dev
 sudo apt-get install --install-recommends winehq-devel
 wget https://raw.github.com/ocaml/opam/master/shell/opam_installer.sh -O - | sh -s /usr/local/bin
+sudo apt-get -qq -y install r-base
+sudo apt-get -qq -y install r-base-dev
+sudo apt-get install gdebi-core
+wget https://download1.rstudio.org/rstudio-0.99.896-amd64.deb
+sudo gdebi -n rstudio-0.99.896-amd64.deb
+rm rstudio-0.99.896-amd64.deb
 
 # Editors
 echo "Installing editors..."
