@@ -54,6 +54,7 @@ sudo apt-get -qq -y install suckless-tools
 # Languages
 echo "Installing languages and tools..."
 sudo apt-get -qq -y install libssl-dev
+sudo apt-get -qq -y install libcurl4-openssl.dev
 sudo apt-get -qq -y install python-dev
 sudo apt-get -qq -y install python-pip
 sudo apt-get -qq -y install python3-dev
