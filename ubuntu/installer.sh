@@ -72,6 +72,8 @@ sudo apt-get install gdebi-core
 wget https://download1.rstudio.org/rstudio-0.99.896-amd64.deb
 sudo gdebi -n rstudio-0.99.896-amd64.deb
 rm rstudio-0.99.896-amd64.deb
+sudo apt-get -qq -y install r-cran-rcpparmadillo
+sudo apt-get -qq -y install r-cran-rgl
 
 # Editors
 echo "Installing editors..."
