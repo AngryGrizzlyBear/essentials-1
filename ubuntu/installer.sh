@@ -122,6 +122,7 @@ sudo apt-get -qq -y install cmake
 sudo apt-get -qq -y install gsimplecal
 sudo apt-get -qq -y install xclip
 sudo apt-get -qq -y install texlive-full
+sudo apt-get -qq -y install default-jre
 
 # Comms
 echo "Installing comms..."
