@@ -16,6 +16,7 @@ echo "Running pre-setup..."
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt-add-repository -y "deb http://repository.spotify.com stable non-free"
 sudo apt-add-repository -y ppa:richardgv/compton
+sudo apt-add-repository -y ppa:webupd8team/java
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D2C19886
 sudo dpkg --add-architecture i386
 sudo add-apt-repository ppa:wine/wine-builds
@@ -122,7 +123,7 @@ sudo apt-get -qq -y install cmake
 sudo apt-get -qq -y install gsimplecal
 sudo apt-get -qq -y install xclip
 sudo apt-get -qq -y install texlive-full
-sudo apt-get -qq -y install default-jre
+sudo apt-get -qq -y install oracle-java8-installer
 
 # Comms
 echo "Installing comms..."
