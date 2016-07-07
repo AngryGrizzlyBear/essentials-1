@@ -19,8 +19,6 @@ sudo apt-add-repository -y ppa:richardgv/compton
 sudo apt-add-respository -y "http://apt.postgresql.org/pub/repos/apt/"
 sudo apt-add-repository -y ppa:webupd8team/java
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D2C19886
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | \
-  sudo apt-key add -
 sudo dpkg --add-architecture i386
 sudo add-apt-repository ppa:wine/wine-builds
 sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | sudo tee -a /etc/apt/sources.list
@@ -90,7 +88,7 @@ sudo pip install neovim
 
 # Databases
 echo "Installing databases..."
-sudo apt-get -qq -y postgresql-9.5
+sudo apt-get -qq -y mysql-server
 
 # Terminals
 echo "Installing terminal..."
