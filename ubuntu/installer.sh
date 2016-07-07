@@ -16,8 +16,11 @@ echo "Running pre-setup..."
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt-add-repository -y "deb http://repository.spotify.com stable non-free"
 sudo apt-add-repository -y ppa:richardgv/compton
+sudo apt-add-respository -y "http://apt.postgresql.org/pub/repos/apt/"
 sudo apt-add-repository -y ppa:webupd8team/java
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D2C19886
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | \
+  sudo apt-key add -
 sudo dpkg --add-architecture i386
 sudo add-apt-repository ppa:wine/wine-builds
 sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | sudo tee -a /etc/apt/sources.list
@@ -75,6 +78,7 @@ sudo gdebi -n rstudio-0.99.896-amd64.deb
 rm rstudio-0.99.896-amd64.deb
 sudo apt-get -qq -y install r-cran-rcpparmadillo
 sudo apt-get -qq -y install r-cran-rgl
+sudo apt-get -qq -y install libpq-dev
 
 # Editors
 echo "Installing editors..."
@@ -83,6 +87,10 @@ sudo apt-get -qq -y install neovim
 
 echo "Installing python tools for neovim..."
 sudo pip install neovim
+
+# Databases
+echo "Installing databases..."
+sudo apt-get -qq -y postgresql-9.5
 
 # Terminals
 echo "Installing terminal..."

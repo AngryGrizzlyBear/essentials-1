@@ -174,6 +174,14 @@ let g:syntastic_javascript_jsxhint_exec = 'eslint'
 " Color customizations
 " let g:indentLine_color_term=###
 
+" Python-mode settings
+
+" disable pymode folding
+let g:pymode_folding = 0
+
+" set pydoc key
+let g:pymode_doc_key = 'K'
+
 " Merlin for OCaml
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
