@@ -88,8 +88,8 @@ sudo pip install neovim
 
 # Databases
 echo "Installing databases..."
-sudo apt-get -qq -y mysql-server
-
+sudo apt-get -qq -y install mysql-server
+sudo apt-get -qq -y install libmysqlclient-dev
 # Terminals
 echo "Installing terminal..."
 sudo apt-get -qq -y rxvt-unicode
