@@ -23,6 +23,23 @@ alias stoppg='pg_ctl -D /usr/local/var/postgres stop'
 # This is for the mac GUI version of emacs.
 alias emacs-gui='open -a /Applications/Emacs.app $1'
 
+
+# Git specific aliases
+alias gp='git push'
+alias gs='git status'
+alias gd='git diff'
+alias gc='git commit -v'
+alias gb='git branch'
+alias gbd='git branch -d'
+alias gbdd='git branch -D'
+alias gpu='git pull'
+alias gm='git merge'
+alias gf='git fetch'
+
+gblame() {
+  git blame $1
+}
+
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
