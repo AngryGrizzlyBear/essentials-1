@@ -35,6 +35,7 @@ alias gbdd='git branch -D'
 alias gpu='git pull'
 alias gm='git merge'
 alias gf='git fetch'
+alias ga='git add .'
 
 gblame() {
   git blame $1
