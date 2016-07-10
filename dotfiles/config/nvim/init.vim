@@ -1,7 +1,5 @@
 set fileencoding=utf-8
 
-filetype off
-
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -125,6 +123,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd FileType rust setlocal shiftwidth=2 tabstop=2
 autocmd BufRead,BufNewFile *.rs set filetype=rust
 
+" Set column width to 80 only on python files
+autocmd BufNewFile,BufRead *.py setlocal colorcolumn=80
+
 " Disable the rust style guide recommended 4 space indentation
 let g:rust_recommended_style=0
 
@@ -184,6 +185,9 @@ let g:pymode_doc_key = 'K'
 
 " Disable auto python-mode autocomplete documentation window
 set completeopt=menu
+
+" Disable markdown automatic section folding
+let g:vim_markdown_folding_disabled = 1
 
 " Merlin for OCaml
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
