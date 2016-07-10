@@ -38,7 +38,7 @@ alias gf='git fetch'
 alias ga='git add .'
 
 gblame() {
-  git blame $1
+  builtin git blame $1
 }
 
 parse_git_branch() {

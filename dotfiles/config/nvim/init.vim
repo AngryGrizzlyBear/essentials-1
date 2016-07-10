@@ -182,6 +182,9 @@ let g:pymode_folding = 0
 " set pydoc key
 let g:pymode_doc_key = 'K'
 
+" Disable auto python-mode autocomplete documentation window
+set completeopt=menu
+
 " Merlin for OCaml
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
