@@ -105,5 +105,7 @@ PROMPT="%{$fg[white]%}┌%{$reset_color%}[%{$fg[yellow]%}%n%{$reset_color%}@%{$f
 %{$fg[white]%}└─╼%{$reset_color%} "
 
 # Run opam init
-~/.opam/opam-init/init.sh  > /dev/null 2> /dev/null || true
-eval `opam config env`
+if hash opam 2>/dev/null; then
+  ~/.opam/opam-init/init.sh  > /dev/null 2> /dev/null || true
+  eval `opam config env`
+fi
