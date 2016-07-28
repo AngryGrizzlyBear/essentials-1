@@ -1,0 +1,4 @@
+# Fire up a tmux session login
+if command -v tmux>/dev/null; then
+  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+fi
