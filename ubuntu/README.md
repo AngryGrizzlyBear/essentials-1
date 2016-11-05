@@ -75,7 +75,7 @@ Here are some hotkeys to get you started:
 * `mod4 + t`: Retile windows
 * `mod4 + shift + c`: Close currently focused window
 
-## GRUB
+### GRUB Changes
 
 A small change has to be applied to stop Ubuntu from booting into a non-existent display manager's login screen:
 
@@ -86,12 +86,12 @@ A small change has to be applied to stop Ubuntu from booting into a non-existent
 
 This will force Ubuntu to boot into a tty. To start Ubuntu type `startx` in any tty.
 
-## Changing Desktop Backgrounds
+### Changing Desktop Backgrounds
 
 Inside of `~/.xinitrc` is a line that starts with `feh`. Change the image being passed into this
 to change the desktop background. Kill the xserver with `alt + shift + q` and `startx` again.
 
-## TODO
+### TODO
 
   1. Have installer script `git clone` essentials and symlink everything correctly.
   2. Have installer automatically modify the grub config to set up text login mode.
