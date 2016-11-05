@@ -1,9 +1,16 @@
 # Ubuntu Install
 
-## Desktop Notes
+## Desktop Setup Information
 
-Install Ubuntu on a desktop with these scripts is a little different. I currently use cinnamon instead of xmonad on my desktop.
+Installing Ubuntu on a desktop with these scripts is a little different. I currently use cinnamon instead of xmonad on my desktop. The `installer.sh` script is current very experimental and could brick your install so be careful using it. To use the installer script:
 
+```
+./installer.sh <desktop|laptop>
+```
+
+Supply either `desktop` or `laptop` as the argument to the installer.
+
+Otherwise, you can run each script individually.
 
 ### Nvidia Graphics Card Issues with LUKS
 
@@ -14,6 +21,10 @@ be able to enter your password in and continue booting.
 
 To fix this problem change `splash` to `nosplash` 
 in your GRUB config and run `sudo update-grub` to lock in the changes.
+
+An additional script `fixplymouth.sh` was included here for archiving purposes. This script did not work for me, but it may work for your install. If you want to keep the splash script, try running `fixplymouth.sh` first.
+
+## Laptop Setup Information
 
 ![desktop screenshot](../current-desktop.png?raw=true "Current Desktop")
 
