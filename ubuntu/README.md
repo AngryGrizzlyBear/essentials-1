@@ -1,5 +1,20 @@
 # Ubuntu Install
 
+## Desktop Notes
+
+Install Ubuntu on a desktop with these scripts is a little different. I currently use cinnamon instead of xmonad on my desktop.
+
+
+### Nvidia Graphics Card Issues with LUKS
+
+It seems that the Nvidia proprietary drivers screw up booting into the splash 
+screen irrepairably. This likely won't bother you much if you don't use LUKS
+but for those of us who do disabling the splash screen is the only way to 
+be able to enter your password in and continue booting. 
+
+To fix this problem change `splash` to `nosplash` 
+in your GRUB config and run `sudo update-grub` to lock in the changes.
+
 ![desktop screenshot](../current-desktop.png?raw=true "Current Desktop")
 
 By running the installer it wipes a complete install and turns it into something more minimal and less resource
