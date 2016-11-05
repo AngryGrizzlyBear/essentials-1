@@ -1,16 +1,16 @@
 # Ubuntu Install
 
-## Desktop Setup Information
-
-Installing Ubuntu on a desktop with these scripts is a little different. I currently use cinnamon instead of xmonad on my desktop. The `installer.sh` script is current very experimental and could brick your install so be careful using it. To use the installer script:
+The `installer.sh` script is current very experimental and could brick your install so be careful using it. To use the installer script:
 
 ```
 ./installer.sh <desktop|laptop>
 ```
 
-Supply either `desktop` or `laptop` as the argument to the installer.
+Supply either `desktop` or `laptop` as the argument to the installer. Otherwise, you can run each script individually.
 
-Otherwise, you can run each script individually.
+## Desktop Setup Information
+
+Installing Ubuntu on a desktop with these scripts is a little different. I currently use cinnamon instead of xmonad on my desktop. 
 
 ### Nvidia Graphics Card Issues with LUKS
 
