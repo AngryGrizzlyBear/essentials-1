@@ -10,6 +10,8 @@ Supply either `desktop` or `laptop` as the argument to the installer. Otherwise,
 
 ## Desktop Setup Information
 
+![desktop screenshot](../current-desktop-desktop.png?raw=true "Current Desktop")
+
 Installing Ubuntu on a desktop with these scripts is a little different. I currently use cinnamon instead of xmonad on my desktop. 
 
 ### Nvidia Graphics Card Issues with LUKS
