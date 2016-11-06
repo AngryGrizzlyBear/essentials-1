@@ -27,7 +27,7 @@ If you've found yourself in a situation where you are booting into a black scree
 2. Select your installation and press `e`
 3. Scroll down until you see a place where it says `quiet splash`
 4. Erase `quiet splash` and put either `nomodeset` or `nvidia.modeset=0` - If one doesn't work try the other (this isn't a permanent change)
-5. You should be able to boot into your install far enough to `ctrl + alt + fN` (where N is 1 - 12) into a terminal so you can make the above changes to your GRUB config permanently
+5. You should be able to boot into your install far enough to `ctrl + alt + fN` (where N is 1 - 6) into a virtual terminal so you can make the above changes to your GRUB config permanently
 
 An additional script `fixplymouth.sh` was included here for archiving purposes. This script did not work for me, but it may work for your install. If you want to keep the splash screen, try running `fixplymouth.sh` first.
 
