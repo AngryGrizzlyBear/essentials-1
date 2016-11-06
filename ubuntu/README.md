@@ -14,17 +14,23 @@ Supply either `desktop` or `laptop` as the argument to the installer. Otherwise,
 
 Installing Ubuntu on a desktop with these scripts is a little different. I currently use cinnamon instead of xmonad on my desktop. 
 
-### Nvidia Graphics Card Issues with LUKS
+### Nvidia Graphics Card Issues Booting to Black Screen with Ubuntu 16.04 and LUKS
 
 It seems that the Nvidia proprietary drivers screw up booting into the splash 
-screen irrepairably. This likely won't bother you much if you don't use LUKS
-but for those of us who do disabling the splash screen is the only way to 
+screen irrepairably. This likely won't bother you much if you don't use LUKS (I'm guessing since it will just boot through to where it needs to be anyway) but for those of us who do, disabling the splash screen is the only way I have found to  
 be able to enter your password in and continue booting. 
 
-To fix this problem change `splash` to `nosplash` 
-in your GRUB config and run `sudo update-grub` to lock in the changes.
+To fix this problem change `splash` to `nosplash` in your GRUB config and run `sudo update-grub` to lock in the changes.
 
-An additional script `fixplymouth.sh` was included here for archiving purposes. This script did not work for me, but it may work for your install. If you want to keep the splash script, try running `fixplymouth.sh` first.
+If you've found yourself in a situation where you are booting into a black screen and don't know how to fix it:
+
+1. Push right shift a bunch of times until you get to the GRUB boot selection screen
+2. Select your installation and press `e`
+3. Scroll down until you see a place where it says `quiet splash`
+4. Erase `quiet splash` and put either `nomodeset` or `nvidia.modeset=0` - If one doesn't work try the other (this isn't a permanent change)
+5. You should be able to boot into your install far enough to `ctrl + alt + fN` (where N is 1 - 12) into a terminal so you can make the above changes to your GRUB config permanently
+
+An additional script `fixplymouth.sh` was included here for archiving purposes. This script did not work for me, but it may work for your install. If you want to keep the splash screen, try running `fixplymouth.sh` first.
 
 ## Laptop Setup Information
 
@@ -48,7 +54,7 @@ It also substitutes Ubuntu's stock media players with less resource intensive al
 *NOTE:* After rebooting you will boot into a black screen. See the section on GRUB for details. To get to a login
 screen press `ctrl + alt + f1` and login normally.
 
-## X Server
+### X Server
 
 To start Xmonad simply type `startx` at the tty.
 
