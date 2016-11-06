@@ -17,8 +17,7 @@ Installing Ubuntu on a desktop with these scripts is a little different. I curre
 ### Nvidia Graphics Card Issues - Booting to Black Screen with Ubuntu 16.04 and LUKS
 
 It seems that the Nvidia proprietary drivers screw up booting into the splash 
-screen irrepairably. This likely won't bother you much if you don't use LUKS (I'm guessing since it will just boot through to where it needs to be anyway) but for those of us who do, disabling the splash screen is the only way I have found to  
-be able to enter your password in and continue booting. 
+screen irrepairably. This likely won't bother you much if you don't use LUKS (I'm guessing since it will just boot through to where it needs to be anyway) but for those of us who do, disabling the splash screen is the only way I have found to be able to enter your password in and continue booting. 
 
 To fix this problem change `splash` to `nosplash` in your GRUB config and run `sudo update-grub` to lock in the changes.
 
