@@ -14,7 +14,7 @@ Supply either `desktop` or `laptop` as the argument to the installer. Otherwise,
 
 Installing Ubuntu on a desktop with these scripts is a little different. I currently use cinnamon instead of xmonad on my desktop. 
 
-### Nvidia Graphics Card Issues Booting to Black Screen with Ubuntu 16.04 and LUKS
+### Nvidia Graphics Card Issues - Booting to Black Screen with Ubuntu 16.04 and LUKS
 
 It seems that the Nvidia proprietary drivers screw up booting into the splash 
 screen irrepairably. This likely won't bother you much if you don't use LUKS (I'm guessing since it will just boot through to where it needs to be anyway) but for those of us who do, disabling the splash screen is the only way I have found to  
