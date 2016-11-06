@@ -1,9 +1,16 @@
 # Ubuntu Install
 
-## Desktop Notes
+The `installer.sh` script is current very experimental and could brick your install so be careful using it. To use the installer script:
 
-Install Ubuntu on a desktop with these scripts is a little different. I currently use cinnamon instead of xmonad on my desktop.
+```
+./installer.sh <desktop|laptop>
+```
 
+Supply either `desktop` or `laptop` as the argument to the installer. Otherwise, you can run each script individually.
+
+## Desktop Setup Information
+
+Installing Ubuntu on a desktop with these scripts is a little different. I currently use cinnamon instead of xmonad on my desktop. 
 
 ### Nvidia Graphics Card Issues with LUKS
 
@@ -14,6 +21,10 @@ be able to enter your password in and continue booting.
 
 To fix this problem change `splash` to `nosplash` 
 in your GRUB config and run `sudo update-grub` to lock in the changes.
+
+An additional script `fixplymouth.sh` was included here for archiving purposes. This script did not work for me, but it may work for your install. If you want to keep the splash script, try running `fixplymouth.sh` first.
+
+## Laptop Setup Information
 
 ![desktop screenshot](../current-desktop.png?raw=true "Current Desktop")
 
@@ -64,7 +75,7 @@ Here are some hotkeys to get you started:
 * `mod4 + t`: Retile windows
 * `mod4 + shift + c`: Close currently focused window
 
-## GRUB
+### GRUB Changes
 
 A small change has to be applied to stop Ubuntu from booting into a non-existent display manager's login screen:
 
@@ -75,12 +86,12 @@ A small change has to be applied to stop Ubuntu from booting into a non-existent
 
 This will force Ubuntu to boot into a tty. To start Ubuntu type `startx` in any tty.
 
-## Changing Desktop Backgrounds
+### Changing Desktop Backgrounds
 
 Inside of `~/.xinitrc` is a line that starts with `feh`. Change the image being passed into this
 to change the desktop background. Kill the xserver with `alt + shift + q` and `startx` again.
 
-## TODO
+### TODO
 
   1. Have installer script `git clone` essentials and symlink everything correctly.
   2. Have installer automatically modify the grub config to set up text login mode.
