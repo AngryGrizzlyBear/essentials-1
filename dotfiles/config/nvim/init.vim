@@ -49,6 +49,7 @@ Plug 'digitaltoad/vim-jade'
 Plug 'wavded/vim-stylus'
 Plug 'raichoo/haskell-vim'
 Plug 'OCamlPro/ocp-indent'
+Plug 'slim-template/vim-slim'
 
 " Org Mode
 Plug 'jceb/vim-orgmode'
@@ -70,7 +71,8 @@ if !has("win32") || !has("win16")
   " on vim start
 
   Plug 'scrooloose/nerdtree'
-
+  " For nerdtree indicators of what has changed
+  Plug 'Xuyuanp/nerdtree-git-plugin'
 
   " Make Vim play nice with tmux
   " Use <c-h> <c-j> <c-k> <c-l>
