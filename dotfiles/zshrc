@@ -110,3 +110,6 @@ if hash opam 2>/dev/null; then
   ~/.opam/opam-init/init.sh  > /dev/null 2> /dev/null || true
   eval `opam config env`
 fi
+
+# autoenv
+source `which activate.sh`
