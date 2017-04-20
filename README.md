@@ -54,7 +54,7 @@ background to show the wallpaper. If you use sh instead of zsh, change it approp
 3. i3
 
 ## Screen Locking
-1. Physlock 
+1. Physlock
 
 ## Fonts
 1. infinality-bundle
@@ -70,3 +70,7 @@ background to show the wallpaper. If you use sh instead of zsh, change it approp
 ## Browsing
 1. Google Chrome
 
+
+# Neovim Configuration Notes
+
+1. Make sure to run `:GoInstallBinaries` if you want to use `vim-go`. Make sure Go and `$GOPATH` are available.

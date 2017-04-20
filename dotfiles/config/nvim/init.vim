@@ -53,6 +53,7 @@ Plug 'wavded/vim-stylus'
 Plug 'raichoo/haskell-vim'
 Plug 'OCamlPro/ocp-indent'
 Plug 'slim-template/vim-slim'
+Plug 'fatih/vim-go'
 
 " Org Mode
 Plug 'jceb/vim-orgmode'
@@ -86,6 +87,20 @@ endif
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+
+" Snippet Support/Configuration
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetsDir="~/.config/nvim/snippets"
+
+" Allow UltiSnips to split the window vertically
+let g:UltiSnipssEditSplit="vertical"
+
+"""""""""""""""""""""""""""""""
 
 " end plugin list
 call plug#end()
