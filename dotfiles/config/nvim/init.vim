@@ -11,6 +11,9 @@ call plug#begin('~/.config/nvim/plugged')
 " Solarized theme
 Plug 'altercation/vim-colors-solarized'
 
+" Zenburn theme
+Plug 'zenburn'
+
 " Syntastic
 Plug 'scrooloose/syntastic'
 
@@ -86,14 +89,6 @@ Plug 'plasticboy/vim-markdown'
 
 " end plugin list
 call plug#end()
-
-" Solarized Dark
-set background=dark
-colorscheme solarized
-" let g:solarized_termcolors=256 " Better terminal colors
-
-" Toggle solarized scheme
-" call togglebg#map("<F5>")
 
 " Standard variables
 set expandtab                  " tabs to spaces
@@ -175,7 +170,8 @@ let g:syntastic_javascript_jsxhint_exec = 'eslint'
 " Indent lines customizations
 
 " Color customizations
-" let g:indentLine_color_term=###
+colorscheme zenburn
+
 
 " Python-mode settings
 
