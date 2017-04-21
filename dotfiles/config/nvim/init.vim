@@ -95,7 +95,7 @@ Plug 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsSnippetsDir="~/.config/nvim/snippets"
+let g:UltiSnipsSnippetsDir=["~/.config/nvim/plugged/vim-snippets/UltiSnips", "~/.config/nvim/snippets"]
 
 " Allow UltiSnips to split the window vertically
 let g:UltiSnipssEditSplit="vertical"
@@ -203,8 +203,9 @@ set completeopt=menu
 let g:vim_markdown_folding_disabled = 1
 
 " Merlin for OCaml
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
+" TODO: Detect OPAM and install/configure merlin. Until then this is commented out.
+" let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+" execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
 " Fugitive bindings
 nnoremap <Leader>gs :Gstatus<CR>
