@@ -57,6 +57,7 @@ Plug 'raichoo/haskell-vim'
 Plug 'OCamlPro/ocp-indent'
 Plug 'slim-template/vim-slim'
 Plug 'fatih/vim-go'
+Plug 'isRuslan/vim-es6'
 
 " Org Mode
 Plug 'jceb/vim-orgmode'

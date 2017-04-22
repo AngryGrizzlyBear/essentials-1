@@ -111,5 +111,3 @@ if hash opam 2>/dev/null; then
   eval `opam config env`
 fi
 
-# autoenv
-source `which activate.sh`
