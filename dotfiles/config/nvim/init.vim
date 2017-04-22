@@ -120,7 +120,7 @@ set shiftround
 set list
 set list listchars=tab:»·,trail:·
 
-" custom functons
+" custom functions
 function! NumberToggle()
   if(&relativenumber == 1)
     set norelativenumber
@@ -168,6 +168,12 @@ nnoremap <silent> + :tabn<CR>
 let g:ctrlp_map='<c-p>'
 let g:ctrlp_cmd='CtrlP'
 
+" Rebind Ctrl-P to match the window opening keys of nerd tree
+let g:ctrl_p_prompt_mappings = {
+  \ 'AcceptSelection("h")': ['<c-i>', '<c-cr>', '<c-s>'],
+  \ 'AcceptSelection("v")': ['<c-s>', '<RightMouse>'],
+\ }
+
 " ctrlp configuration
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip      " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe   " Windows
@@ -186,11 +192,8 @@ endif
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_jsxhint_exec = 'eslint'
 
-" Indent lines customizations
-
 " Color customizations
 colorscheme zenburn
-
 
 " Python-mode settings
 
@@ -222,12 +225,6 @@ inoremap <F9> <C-O>za
 nnoremap <F9> za
 onoremap <F9> <C-C>za
 vnoremap <F9> zf
-
-" Rebind Ctrl-P to match the window opening keys of nerd tree
-let g:ctrl_p_prompt_mappings = {
-  \ 'AcceptSelection("h")': ['<c-s>', '<c-cr>', '<c-s>'],
-  \ 'AcceptSelection("v")': ['<c-i>', '<RightMouse>']
-}
 
 " Line indent guides are defaulted to off
 let g:indentLine_enabled=0
