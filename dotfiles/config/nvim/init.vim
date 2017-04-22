@@ -39,6 +39,9 @@ Plug 'vim-airline/vim-airline-themes'
 " Indent guides
 Plug 'Yggdroot/indentLine'
 
+" Autocomplete certain pairs (", ], etc)
+Plug 'jiangmiao/auto-pairs'
+
 " Language specific syntax highlighting
 Plug 'derekwyatt/vim-scala'
 Plug 'kchmck/vim-coffee-script'
