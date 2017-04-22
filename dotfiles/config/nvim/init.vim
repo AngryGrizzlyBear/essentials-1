@@ -223,6 +223,12 @@ nnoremap <F9> za
 onoremap <F9> <C-C>za
 vnoremap <F9> zf
 
+" Rebind Ctrl-P to match the window opening keys of nerd tree
+let g:ctrl_p_prompt_mappings = {
+  \ 'AcceptSelection("h")': ['<c-s>', '<c-cr>', '<c-s>'],
+  \ 'AcceptSelection("v")': ['<c-i>', '<RightMouse>']
+}
+
 " Line indent guides are defaulted to off
 let g:indentLine_enabled=0
 
