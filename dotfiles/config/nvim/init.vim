@@ -142,6 +142,9 @@ autocmd BufRead,BufNewFile *.rs set filetype=rust
 " Set column width to 80 only on python files
 autocmd BufNewFile,BufRead *.py setlocal colorcolumn=80
 
+" Indent YAML files correctly
+au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
 " Disable the rust style guide recommended 4 space indentation
 let g:rust_recommended_style=0
 
