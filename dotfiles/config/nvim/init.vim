@@ -145,6 +145,9 @@ autocmd BufNewFile,BufRead *.py setlocal colorcolumn=80
 " Disable the rust style guide recommended 4 space indentation
 let g:rust_recommended_style=0
 
+" Explicitly provide vim-go the gofmt command
+let g:go_fmt_command = "gofmt"
+
 " Hotkeys
 " Note noremap is a normal mode non-recursive mapping
 " nnoremap and nmap make the bind only work in normal mode
