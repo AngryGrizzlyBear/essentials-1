@@ -151,6 +151,10 @@ let g:rust_recommended_style=0
 " Explicitly provide vim-go the gofmt command
 let g:go_fmt_command = "gofmt"
 
+" Go linting and automatically lint on write
+set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
+autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
+
 " Hotkeys
 " Note noremap is a normal mode non-recursive mapping
 " nnoremap and nmap make the bind only work in normal mode
