@@ -199,7 +199,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_jsxhint_exec = 'eslint'
 
 " Go linting on write. This takes advantage of :GoMetaLinter in vim-go and requires golint to be installed
-autocmd BufWritePost,FileWritePost *.go execute 'GoMetalLinter' | cwindow<Paste>
+autocmd BufWritePost,FileWritePost *.go execute 'GoMetaLinter' | cwindow<Paste>
 
 " Color customizations
 colorscheme zenburn
