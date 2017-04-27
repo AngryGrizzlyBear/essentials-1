@@ -33,3 +33,5 @@ bundle/**
 autoload/
 
 npm-debug.log
+
+dotfiles/config/configstore/update-notifier-nodemon.json
