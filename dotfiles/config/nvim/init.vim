@@ -96,6 +96,9 @@ Plug 'plasticboy/vim-markdown'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+" Database engine support
+Plug 'https://github.com/vim-scripts/dbext.vim'
+
 let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
